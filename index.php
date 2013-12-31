@@ -89,7 +89,7 @@
           <img src="img/carousel/test2.JPG" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Nieuwjaarsconcert.</h1>
+              <h2>Nieuwjaarsconcert.</h2>
               <p>10 Januari met een vliegtuigje</p>
               <p><a class="btn btn-lg btn-primary" href="#" role="button">Lees meer</a></p>
             </div>
