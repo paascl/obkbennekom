@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="favicon.png">
@@ -15,6 +15,42 @@
     <link href="css/custom.css" rel="stylesheet">
     <link href="css/carousel.css" rel="stylesheet">
   </head>
+
+
+<!--Login modal-->
+
+<div class="modal fade" id="login">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Inloggen</h4>
+      </div>
+      <div class="modal-body">
+        
+<form class="form-horizontal" role="form">
+  <div class="form-group">
+    <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+       <br><a href="#">Login aanvragen</a> (alleen voor leden)</br>
+    </div>
+  </div>
+    <div class="modal-footer">
+     <button type="submit" class="btn btn-primary">Inloggen</button>
+    </div>
+  </div>
+</form>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+
 <!-- NAVBAR
 ================================================== -->
   <body>
@@ -32,7 +68,7 @@
                 <span class="icon-bar"></span>
               </button>
             </div>
-              <button type="button" class="btn btn-default navbar-right navbar-btn" >Login</button>
+              <button type="button" class="btn btn-default navbar-right navbar-btn" data-toggle="modal" data-target="#login">Login</button>
 
               
               <div class="navbar-collapse collapse">
@@ -40,6 +76,7 @@
                <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">De vereniging <b class="caret"></b></a>
                   <ul class="dropdown-menu">
+                    <li class="divider"></li> <!--Ruimte voor zoekscherm op tablet-->
                     <li><a href="#">Algemene informatie</a></li>
                     <li><a href="#">Harmonie orkest</a></li>
                     <li><a href="#">Drumband</a></li>
@@ -50,7 +87,8 @@
                <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Nieuws <b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Nieuwsjaarsconcert</a></li>
+                   <li class="divider"></li> <!--Ruimte voor zoekscherm op tablet-->
+                     <li><a href="#">Nieuwsjaarsconcert</a></li>
                     <li><a href="#">Goud voor drumband op WMC</a></li>
                     <li><a href="#">Koekjesactie</a></li>
                     <li class="divider"></li>
@@ -67,23 +105,26 @@
       <input type="text" class="form-control" placeholder="Nieuws">
        <span class="input-group-btn">
        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-      </span></div>
+      </span></div></form>
           </div>
          </div>
         </div>
        </div>
      
-   
+   <div class="container">
+
            <!-- Carousel
     ================================================== -->
- <div class="container">
-    <div id="myCarousel" class="carousel caption" data-ride="carousel">
+
+    <div id="myCarousel" class="carousel caption slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+  
+     </ol>
       <div class="carousel-inner">
         <div class="item active">
           <img src="img/carousel/test2.JPG" alt="First slide">
@@ -116,6 +157,17 @@
             </div>
           </div>
         </div>
+      
+      <div class="item">
+         <div class="container">
+          <center><iframe width="700" height="350" src="//www.youtube.com/embed/Wzo6L904AX0" frameborder="0" allowfullscreen></iframe></center>
+          <div class="carousel-caption">
+              <h2>Goud voor drumband</h2>
+            </div>
+          </div>
+        </div>
+      
+      
       </div>
       <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
@@ -146,7 +198,7 @@
         </div>
         <div class="col-sm-3">
          <center>
-           <h3>Leerlingen</h3>
+           <h3>Opleiding</h3>
            <img src="img/thumbs/jeugd.jpg" class ="onderdelenthumb img-rounded ">
           <br><br><a class="btn btn-default" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseJeugd">Informatie &raquo;</a></p></center>
         </div>
@@ -160,9 +212,10 @@
    <div id="collapseOrkest" class="panel-collapse collapse">
    <div class="panel-body">
       <div class="panel panel-default">
-  <div class="panel-heading"><h4><strong>Harmonie orkest</strong></h4></div>
+  <div class="panel-heading">
+   <div class="panel-title"><h3>Harmonie orkest</h3></div>
   <div class="panel-body">
- <div class="col-sm-4">
+ <div class="col-sm-5">
   <div class="panel panel-default">
   <div class="panel-heading"><strong>Algemene info</strong></div>
   <div class="panel-body">
@@ -183,7 +236,7 @@
     </tr>
   </table>
 </div></div>
-  <div class="col-sm-8">
+  <div class="col-sm-7">
 Het harmonieorkest bestaat momenteel uit ongeveer 55 muzikanten en is opgebouwd volgens de traditionele klassieke harmoniebezetting met verschillende hout- en koperblaasinstrumenten en slagwerk. Het orkest speelt sinds 1991 in de eerste divisie (voorheen vaandelafdeling) van de KNFM.<br />
 Het orkest is zich steeds meer aan het ontwikkelen naar een groot concerterend orkest. Deze ontwikkeling werd in 2007 al reeds beloond door deelname aan het topconcert concours in Venlo. De aankomende jaren hoopt het orkest hierin verder te groeien. De eigen jeugdopleiding, het nieuwe muziekcentrum en een aantrekkelijk en kwalitatief goed repertoire moeten hierin bijdragen. Naast de aantrekkingskracht op Bennekomse musici hoopt OBK, door de centrale ligging tussen grote plaatsen als Ede, Veenendaal en Wageningen, ook muzikanten uit de regio te trekken. OBK hoopt de aankomende jaren de toonaangevende muziekvereniging van de regio te worden. 
 <br /><br />
@@ -195,17 +248,20 @@ Naast het concerterend gebeuren is het orkest ook terug te vinden en te horen bi
 <br /><br />
 Het orkest repeteert op dinsdagavond van 19.45 uur tot 22.00 uur.<br /><br /><h2><small>Dirigent</small></h2>Ghislain Bellefroid studeerde orkestdirectie bij de Engelse dirigentenpedagoog Kerry Woodward en Hafa directie bij Jan Cober en Gert Buitenhuis. Na zijn studie volgde hij enkele cursussen en masterclasses bij:  Jorma Panula, Ed Spanjaard, Roberto Benzi en Arie van Beek. In 2009 volgde hij de bekende cursus bij Gianluigi Gelmetti en Maurizio Dones aan de "Academia Musicale Chigiana".<br /><br />
 Eind 2009 won hij een auditie van het Residentie Orkest met als prijs een exclusieve masterclass van Edo de Waart. Bellefroid leidde al meerdere beroepsorkesten in binnen-en buitenland met repertoire van o.a. Beethoven, Verdi, Wagner, Bruckner en Stravinsky. <br /><br />Hij tracht in zijn muzikale benadering vernieuwend en verfrissend te zijn. Dit kan zijn door een bepaalde benadering van de partituur of de samenwerking met een bijzondere solist of kunstvorm. Op dit moment is Ghislain assistent van chefdirigent Jan Willem de Vriend.</div>
-</div></div></div>
 </div>
-      
+</div>
+</div>
+</div>
+</div>             
 <!--Drumband-->
        
    <div id="collapseDrumband" class="panel-collapse collapse">
    <div class="panel-body">
       <div class="panel panel-default">
-  <div class="panel-heading"><h4><strong>Drumband</strong></h4></div>
+  <div class="panel-heading">
+    <div class="panel-title"><h3>Drumband</h3></div>
   <div class="panel-body">
- <div class="col-sm-4">
+ <div class="col-sm-5">
   <div class="panel panel-default">
   <div class="panel-heading"><strong>Algemene info</strong></div>
   <div class="panel-body">
@@ -226,7 +282,7 @@ Eind 2009 won hij een auditie van het Residentie Orkest met als prijs een exclus
     </tr>
   </table>
 </div></div>
-  <div class="col-sm-8">
+  <div class="col-sm-7">
 Het slagwerkensemble telt zo’n 16 slagwerkers. Het ensemble toont zich graag bij diverse buitenoptredens. Met een breed scala aan straatmarsen presenteert het zich als een veelzijdig ensemble. De stijl van het slagwerkensemble bezit Schotse en Amerikaanse invloeden. Het ensemble beschikt niet over melodisch slaginstrumenten. Veel buitenoptredens worden samen met orkest en majorettes verzorgd.
 Naast de buitenoptredens treedt het slagwerkensemble ook op bij concerten. Zij weet het publiek dan te boeien door vakkundig gebruik te maken van een uitgebreid instrumentarium en een afwisselend repertoire. Ook experimenten van beroemde slagwerkgroepen worden niet geschuwd. Creativiteit is het ensemble zeker toevertrouwd.
 <br /><br />In juni 2008 is het slagwerkensemble afgereisd naar Chrudim (Tsjechië) om de bevolking kennis te laten maken met het slagwerk. Een verslag van deze reis is <a href="http://www.obkbennekom.nl/nieuws/158#bericht" class="default_a"><strong>hier</strong></a> te vinden.
@@ -235,16 +291,19 @@ Naast de buitenoptredens treedt het slagwerkensemble ook op bij concerten. Zij w
 Het slagwerkensemble repeteert op donderdagavond van 20.00 uur tot 22.00 uur. Instructeur is Willem Schoonheim.<h2><small>Instructeur</small></h2>Willem is op 6 jarige leeftijd zelf besmet met het slagwerkvirus en heeft dit overgebracht op vele enthousiaste mensen. Op dit moment is Willem actief als studiodrummer, vaste drummer van Back4More en artistiek leider van 2 klassieke slagwerkensembles (waaronder OBK Bennekom) en is als docent nog werkzaam binnen verschillende muziekverenigingen.
 Zijn achtergrond is klassiek geschoold maar met een grote passie voor drums. Door de jaren heen heeft hij met veel gerenommeerde musici mogen samenspelen welke hem gevormd hebben tot een brede en veelzijdige drummer/percussionist.</div>
 </div>
-</div></div></div>
+</div>
+</div>
+</div>
 </div>
 <!--Twirl-->
        
    <div id="collapseTwirl" class="panel-collapse collapse">
    <div class="panel-body">
       <div class="panel panel-default">
-  <div class="panel-heading"><h4><strong>Twirlers</strong></h4></div>
+  <div class="panel-heading">
+    <div class="panel-title"><h3>Twirlers</h3></div>
   <div class="panel-body">
- <div class="col-sm-4">
+ <div class="col-sm-5">
   <div class="panel panel-default">
   <div class="panel-heading"><strong>Algemene info</strong></div>
   <div class="panel-body">
@@ -265,19 +324,23 @@ Zijn achtergrond is klassiek geschoold maar met een grote passie voor drums. Doo
     </tr>
   </table>
 </div></div>
-  <div class="col-sm-8">
+  <div class="col-sm-7">
 Behalve de orkesten en ensembles die zelf muziek maken heeft OBK ook een groep meisjes die muziek gebruiken voor dans en show. Niet alleen op straat bij marsoptredens maar ook in een zaal bij uitvoeringen of wedstrijden zijn deze meisjes actief. In de les wordt ook tijd besteed aan het behalen van certificaten die als leidraad dienen voor doorstroming binnen de vereniging. De groepen en solisten staan onder leiding van instructrice Ilse van Dam
 </div>
-</div></div></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <!--Jeugd-->
        
    <div id="collapseJeugd" class="panel-collapse collapse">
    <div class="panel-body">
       <div class="panel panel-default">
-  <div class="panel-heading"><h4><strong>Jeugdopleiding</strong></h4></div>
+  <div class="panel-heading">
+    <div class="panel-title"><h4>Jeugdopleiding</h4></div>
   <div class="panel-body">
- <div class="col-sm-4">
+ <div class="col-sm-5">
   <div class="panel panel-default">
   <div class="panel-heading"><strong>Algemene info</strong></div>
   <div class="panel-body">
@@ -303,7 +366,7 @@ Behalve de orkesten en ensembles die zelf muziek maken heeft OBK ook een groep m
     
   </table>
 </div></div>
-  <div class="col-sm-8">
+  <div class="col-sm-7">
 De vereniging verzorgt de opleiding van de jeugd, met als doel en uitgangspunt dat de leerlingen een volwaardig meespelend lid worden van OBK. Aan de hand van het raamleerplan van het NIB (Nederlands Instituut voor Blaasmuziek) geven gediplomeerde vakdocenten les in de verschillende instrumenten. Er zijn drie jeugdonderdelen bij OBK: AMV, C-orkest en B-orkest. Om de jeugdleden bij OBK betrokken te houden worden er ieder jaar activiteiten georganiseerd waarvan het jeugdkamp tijdens het Hemelvaartsweekend het hoogtepunt is.
 <br /><br />
 <h2><small>AMV</small></h2><br />
@@ -328,70 +391,96 @@ Het jeugslagwerkensemble staat onder leiding van Ruud Roelofsen
 <h2><small>Opleiding</small></h2><br />
 Basis voor de opleiding is het raamleerplan van het NIB (Nederlands Instituut voor Blaasmuziek). Wanneer na de AMV-cursus een instrument is gekozen, worden de leerlingen door vakdocenten opgeleid voor het A-diploma, hetgeen meestal twee tot drie jaar duurt. Slagwerkers met het A-diploma mogen naar het slagwerkensemble of het B-orkest. E&#233;n of twee jaar later kan het B-examen worden gedaan en in de regel kan men daarna meespelen in het harmonieorkest. Meestal wordt de opleiding voortgezet en kan men C- en D-examen doen. Het D-diploma geeft aansluiting op het muziekvakonderwijs op conservatoria.
 </div>
-</div></div></div>
+ </div>
+  </div>
+   </div>
+    </div>
+     </div> 
+      </div>
+       </div>
+        </div>
+      
+       <br></br>
+                
+ <!--Laatse nieuws-->
+
+<div class="row">
+<div class="col-sm-8">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><strong>Laatste nieuws</strong></h3>
+  </div>
+  <div class="panel-body">
+    Panel content
+  </div>
 </div>
-  </div> 
-       </div> 
-        </div>  <!-- /.container-->
-     
-      <!-- START THE FEATURETTES -->
+    </div>
 
-      <hr class="featurette-divider">
+ <!--Agenda-->
 
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive" data-src="js/holder.js/500x500/auto" alt="Generic placeholder image">
-        </div>
-      </div>
+<div class="col-sm-4">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><strong>Activiteiten</strong></h3>
+  </div>
+  <div class="panel-body">
+    Panel content
+  </div>
+</div>
+</div>
 
-      <hr class="featurette-divider">
+ <!--Social media-->
+<div class="col-sm-8"></div>
+<div class="col-sm-4">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><strong>Social media</strong></h3>
+  </div>
+  <div class="panel-body">
+    Panel content
+  </div>
+</div>
+</div>
+    
+</div> <!--Row-->
+</div><!-- /.container -->
 
-      <div class="row featurette">
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive" data-src="js/holder.js/500x500/auto" alt="Generic placeholder image">
-        </div>
-        <div class="col-md-7">
-          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-      </div>
+<!-- FOOTER -->
 
-      <hr class="featurette-divider">
+<div="row">
+<hr>
+<div class="col-sm-3">
+ <address>
+  <strong>OBK Bennekom </strong><br>
+          Kierkamperweg 36 <br>
+          6721 TE Bennekom <br>
+  <abbr title="Tel: "></abbr> 0318 - 413206 <br>
+  <a href="mailto:info@obkbennekom.nl">info@obkbennekom.nl</a>
+</address>
+</div>
+<img src="/img/thumbs/obkgebouw.jpg" class="gebouwthumb img-thumbnail">
 
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-        </div>
-        <div class="col-md-5">
-          <img class="featurette-image img-responsive" data-src="js/holder.js/500x500/auto" alt="Generic placeholder image">
-        </div>
-      </div>
-
-      <hr class="featurette-divider">
-
-      <!-- /END THE FEATURETTES -->
-
-
-      <!-- FOOTER -->
-      <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2013 OBK Bennekom. &middot; 
-      </footer>
-
-    </div><!-- /.container -->
-
-
+    
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery.js"></script>
+    <script src="js/jquery.mobile.custom.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap-hover-dropdown.js"></script>
     <script src="js/holder.js"></script>
   </body>
 </html>
+
+   <!--Swipe support-->
+
+<script>
+  $(document).ready(function() {  
+  		 $("#myCarousel").swiperight(function() {  
+    		  $(this).carousel('prev');  
+	    		});  
+		   $("#myCarousel").swipeleft(function() {  
+		      $(this).carousel('next');  
+	   });  
+	});  
+</script>
