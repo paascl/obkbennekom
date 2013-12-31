@@ -1,4 +1,10 @@
 .onderdelenthumb {
-width: 180px;
-height: 120px;
+    width: 180px;
+    height: 120px;
 }
+
+.gebouwthumb {
+    width: 180px;
+    height: 100px;
+}
+
