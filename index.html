@@ -247,7 +247,7 @@
    <div class="panel-title"><h3>Harmonie orkest</h3></div>
   <div class="panel-body">
  <div class="col-sm-5">
-  <div class="panel panel-default">
+  <div class="panel panel-default hidden-xs">
   <div class="panel-heading"><strong>Algemene info</strong></div>
   <div class="panel-body">
   </div>
@@ -308,7 +308,7 @@ Eind 2009 won hij een auditie van het Residentie Orkest met als prijs een exclus
     <div class="panel-title"><h3>Drumband</h3></div>
   <div class="panel-body">
  <div class="col-sm-5">
-  <div class="panel panel-default">
+  <div class="panel panel-default hidden-xs">
   <div class="panel-heading"><strong>Algemene info</strong></div>
   <div class="panel-body">
   </div>
@@ -362,7 +362,7 @@ Zijn achtergrond is klassiek geschoold maar met een grote passie voor drums. Doo
     <div class="panel-title"><h3>Twirlers</h3></div>
   <div class="panel-body">
  <div class="col-sm-5">
-  <div class="panel panel-default">
+  <div class="panel panel-default hidden-xs">
   <div class="panel-heading"><strong>Algemene info</strong></div>
   <div class="panel-body">
   </div>
@@ -407,7 +407,7 @@ Behalve de orkesten en ensembles die zelf muziek maken heeft OBK ook een groep m
     <div class="panel-title"><h3>Jeugdopleiding</h3></div>
   <div class="panel-body">
  <div class="col-sm-5">
-  <div class="panel panel-default">
+  <div class="panel panel-default xs-hidden">
   <div class="panel-heading"><strong>Algemene info</strong></div>
   <div class="panel-body">
   </div>
@@ -586,74 +586,14 @@ Basis voor de opleiding is het raamleerplan van het NIB (Nederlands Instituut vo
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap-hover-dropdown.js"></script>
     <script src="js/holder.js"></script>
+    <script src="js/obkfrontend.js"></script>
+
   </body>
 </html>
 
    <!--Swipe support-->
 
 <script>
-    $(document).ready(function () {
-        $("#myCarousel").swiperight(function () {
-            $(this).carousel('prev');
-        });
-        $("#myCarousel").swipeleft(function () {
-            $(this).carousel('next');
-        });
 
-   $( ".thumbnail" )
-        .mouseenter(function() {
-            $(this).find('.onderdeelcaption').removeClass("slideOutUp").addClass("slideInDown").show();
-        })
-        .mouseleave(function() {
-            $(this).find('.onderdeelcaption').removeClass("slideInUp").addClass("slideOutUp");
-     });
-});
- 
-     
-
-    function ShowOnderdeel(onderdeel) {
-
-        $('#Onderdeelinfo').scrollspy();
-
-        $('.collapse').collapse({
-            toggle: false
-        })
-
-
-        switch (onderdeel) {
-
-            case 'orkest':
-                $('#collapseTwirl').collapse('hide');
-                $('#collapseJeugd').collapse('hide');
-                $('#collapseDrumband').collapse('hide');
-                $('#collapseOrkest').collapse('show');
-                break;
-
-            case 'drumband':
-                $('#collapseOrkest').collapse('hide');
-                $('#collapseTwirl').collapse('hide');
-                $('#collapseJeugd').collapse('hide');
-                $('#collapseDrumband').collapse('show');
-                break;
-
-            case 'twirl':
-                $('#collapseOrkest').collapse('hide');
-                $('#collapseDrumband').collapse('hide');
-                $('#collapseJeugd').collapse('hide');
-                $('#collapseTwirl').collapse('show');
-                break;
-
-            case 'jeugd':
-                $('#collapseOrkest').collapse('hide');
-                $('#collapseDrumband').collapse('hide');
-                $('#collapseTwirl').collapse('hide');
-                $('#collapseJeugd').collapse('show');
-                break;
-
-        }
-    
-        window.location="#OnderdeelInfo"
-    
-    }
 
 </script>
