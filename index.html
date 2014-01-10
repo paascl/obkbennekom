@@ -16,10 +16,10 @@
     <link href="css/custom.css" rel="stylesheet">
     <link href="css/carousel.css" rel="stylesheet">
     <link href="css/font-awesome.css" rel="stylesheet">
-
+    <link href="css/animate.css" rel="stylesheet">
   </head>
 
-<body>
+<body data-spy="scroll">
 
 <!--Login modal-->
 
@@ -56,8 +56,8 @@
     </div><!-- /.modal-content -->
  
 
-<!-- NAVBAR
-================================================== -->
+<!-- Menu-->
+
   <body>
       <div class="navbar-default">
       <div class="container">
@@ -81,32 +81,43 @@
                <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">De vereniging <b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                    <li class="divider"></li> <!--Ruimte voor zoekscherm op tablet-->
-                    <li><a href="#">Algemene informatie</a></li>
-                    <li><a href="#">Harmonie orkest</a></li>
-                    <li><a href="#">Drumband</a></li>
-                    <li><a href="#">Majorettes</a></li>
-                    <li><a href="#">Leerlingen</a></li>
+                    <li class="divider"></li> <!--Ruimte voor zoekbalk op tablet-->
+                    <li><a class="btn btn-link" role="button" onclick="">Algemene informatie</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="ShowOnderdeel('orkest')">Harmonie orkest</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="ShowOnderdeel('drumband')">Drumband</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="ShowOnderdeel('twirl')">Majorette/twirlgroep</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="ShowOnderdeel('jeugd')">Jeugd</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="">Muziekcentrum</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="">Bestuur en commissies</a></li>
+
                   </ul>
                 </li>
                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Nieuws <b class="caret"></b></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Opleiding <b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                   <li class="divider"></li> <!--Ruimte voor zoekscherm op tablet-->
-                     <li><a href="#">Nieuwsjaarsconcert</a></li>
-                    <li><a href="#">Goud voor drumband op WMC</a></li>
-                    <li><a href="#">Koekjesactie</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Nieuwsarchief</a></li>
+                   <li class="divider"></li> <!--Ruimte voor zoekbalk op tablet-->
+                    <li><a class="btn btn-link" role="button" onclick="">Opleidingsplan</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="">AMV</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="">B-orkest</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="">C-orkest</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="">B-drumband</a></li>
                   </ul>
                 </li>
-                <li><a href="#contact">Kaartverkoop</a></li>
-                <li><a href="#contact">Lid worden</a></li>
- 
-                <li><a href="#contact">Contact</a></li>
+               <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Interactie <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                   <li class="divider"></li> <!--Ruimte voor zoekscherm op tablet-->
+                    <li><a class="btn btn-link" role="button" onclick="">Lid worden</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="">Kaartverkoop/reserveren</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="">Informatie aanvragen</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="">Nieuwsbrief</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="">Donateur worden</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="">Lidmaatschap opzeggen</a></li>
+                  </ul>
+                </li>
               </ul>
     <form class="navbar-form " role="search">
-     <div class="input-group col-lg-3">
+     <div class="input-group col-lg-4">
       <input type="text" class="form-control" placeholder="Nieuws">
        <span class="input-group-btn">
        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
@@ -117,10 +128,9 @@
        </div>
       </div>
    <div class="container">
-
-           <!-- Carousel
-    ================================================== -->
-
+            
+ <!-- Carousel !-->
+  
     <div id="myCarousel" class="carousel caption slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
@@ -175,46 +185,66 @@
       <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
     </div>
         
-     <!--Onderdelen-->
+  <!--Onderdelen-->
+
+<div id="OnderdeelInfo">
+
 
       <div class="panel-group" id="accordion">
        <div class="row">
         <div class="col-sm-3">
           <center>
-            <h3>Orkest</h3>
-          <img src="img/thumbs/orkest.jpg" class="onderdelenthumb img-rounded" alt="">
-           <br><br><a class="btn btn-default" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOrkest">Informatie &raquo;</a></p></center>
-         </div>
+            <div class="thumbnail">
+                <div class="onderdeelcaption animated">
+                    <h3>Orkest</h3>
+                    <p><a class="btn btn-default btn-xs" role="button" onclick="ShowOnderdeel('orkest')" rel="tooltip" title="Meer informatie">Informatie</a></p>
+                  </div>
+                <img src="img/thumbs/orkest.jpg" class="img-rounded" alt="Het harmonieorkest">
+            </div>
+        </div>
       
         <div class="col-sm-3">
-         <center>
-          <h3>Drumband</h3>
-          <img src="img/thumbs/drumband.jpg" class ="onderdelenthumb img-rounded" alt="">
-          <br><br><a class="btn btn-default" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseDrumband">Informatie &raquo;</a></p></center>
+          <center>
+            <div class="thumbnail">
+                <div class="onderdeelcaption animated">
+                    <h3>Drumband</h3>
+                    <p><a class="btn btn-default btn-xs" role="button" onclick="ShowOnderdeel('drumband')" rel="tooltip" title="Meer informatie">Informatie</a></p>
+                  </div>
+                <img src="img/thumbs/drumband.jpg" class="img-rounded" alt="De drumband">
+            </div>
         </div>
         <div class="col-sm-3">
-         <center>
-          <h3>Twirlgroep</h3>
-          <img src="img/thumbs/twirl.jpg" class ="onderdelenthumb img-rounded" alt="">
-          <br><br><a class="btn btn-default" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwirl">Informatie &raquo;</a></p></center>
+          <center>
+            <div class="thumbnail">
+                <div class="onderdeelcaption animated">
+                    <h3>Majorettegroep</h3>
+                    <p><a class="btn btn-default btn-xs" role="button" onclick="ShowOnderdeel('twirl')" rel="tooltip" title="Meer informatie">Informatie</a></p>
+                  </div>
+                <img src="img/thumbs/twirl.jpg" class="img-rounded" alt="De majorettegroep">
+            </div>
         </div>
         <div class="col-sm-3">
-         <center>
-           <h3>Opleiding</h3>
-           <img src="img/thumbs/jeugd.jpg" class ="onderdelenthumb img-rounded" alt="">
-          <br><br><a class="btn btn-default" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseJeugd">Informatie &raquo;</a></p></center>
+          <center>
+            <div class="thumbnail">
+                <div class="onderdeelcaption animated">
+                    <h3>Jeugd</h3>
+                    <p><a class="btn btn-default btn-xs" role="button" onclick="ShowOnderdeel('jeugd')" rel="tooltip" title="Meer informatie">Informatie</a></p>
+                  </div>
+                <img src="img/thumbs/jeugd.jpg" class="img-rounded" alt="Opleiding en jeugdorkesten">
+            </div>
         </div>
-       </div> 
+    </div> 
  
    <div class="row">
    <div class="col-sm-12">
-     
+
 <!--Orkest-->
        
    <div id="collapseOrkest" class="panel-collapse collapse">
    <div class="panel-body">
       <div class="panel panel-default">
   <div class="panel-heading">
+      <button type="button" class="close" aria-hidden="true" data-toggle="collapse" data-parent="#accordion" href="#collapseOrkest">&times;</button>
    <div class="panel-title"><h3>Harmonie orkest</h3></div>
   <div class="panel-body">
  <div class="col-sm-5">
@@ -257,18 +287,25 @@ Op het jaarprogramma van het orkest staan meerdere concerten gepland. Het orkest
 Naast het concerterend gebeuren is het orkest ook terug te vinden en te horen bij de sociale gebeurtenissen in Bennekom. Festiviteiten als Sinterklaas, Koninginnedag en de Bennekomse Vlegeldag worden door het orkest (samen met het slagwerkensemble en majorettegroep) opgeluisterd. 
 <br /><br />
 Het orkest repeteert op dinsdagavond van 19.45 uur tot 22.00 uur.<br /><br /><h2><small>Dirigent</small></h2>Ghislain Bellefroid studeerde orkestdirectie bij de Engelse dirigentenpedagoog Kerry Woodward en Hafa directie bij Jan Cober en Gert Buitenhuis. Na zijn studie volgde hij enkele cursussen en masterclasses bij:  Jorma Panula, Ed Spanjaard, Roberto Benzi en Arie van Beek. In 2009 volgde hij de bekende cursus bij Gianluigi Gelmetti en Maurizio Dones aan de "Academia Musicale Chigiana".<br /><br />
-Eind 2009 won hij een auditie van het Residentie Orkest met als prijs een exclusieve masterclass van Edo de Waart. Bellefroid leidde al meerdere beroepsorkesten in binnen-en buitenland met repertoire van o.a. Beethoven, Verdi, Wagner, Bruckner en Stravinsky. <br /><br />Hij tracht in zijn muzikale benadering vernieuwend en verfrissend te zijn. Dit kan zijn door een bepaalde benadering van de partituur of de samenwerking met een bijzondere solist of kunstvorm. Op dit moment is Ghislain assistent van chefdirigent Jan Willem de Vriend.</div>
+Eind 2009 won hij een auditie van het Residentie Orkest met als prijs een exclusieve masterclass van Edo de Waart. Bellefroid leidde al meerdere beroepsorkesten in binnen-en buitenland met repertoire van o.a. Beethoven, Verdi, Wagner, Bruckner en Stravinsky. <br /><br />Hij tracht in zijn muzikale benadering vernieuwend en verfrissend te zijn. Dit kan zijn door een bepaalde benadering van de partituur of de samenwerking met een bijzondere solist of kunstvorm. Op dit moment is Ghislain assistent van chefdirigent Jan Willem de Vriend.
+<br><br><a class="btn btn-default btn-xs" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOrkest">Sluiten</a></p></center>
+
+
+</div>
 </div>
 </div>
 </div>
 </div>
 </div>             
+
+
 <!--Drumband-->
        
    <div id="collapseDrumband" class="panel-collapse collapse">
    <div class="panel-body">
       <div class="panel panel-default">
   <div class="panel-heading">
+      <button type="button" class="close" aria-hidden="true" data-toggle="collapse" data-parent="#accordion" href="#collapseDrumband">&times;</button>
     <div class="panel-title"><h3>Drumband</h3></div>
   <div class="panel-body">
  <div class="col-sm-5">
@@ -306,7 +343,11 @@ Naast de buitenoptredens treedt het slagwerkensemble ook op bij concerten. Zij w
 <br /><br />Op zondag 12 juli 2009 debuteerde de drumband van OBK Bennekom op het WMC (World Music Contest) te Kerkrade. Met een score van 84.87 punten mag OBK terugkijken op een geslaagd debuut. 
 <br /><br />
 Het slagwerkensemble repeteert op donderdagavond van 20.00 uur tot 22.00 uur. Instructeur is Willem Schoonheim.<h2><small>Instructeur</small></h2>Willem is op 6 jarige leeftijd zelf besmet met het slagwerkvirus en heeft dit overgebracht op vele enthousiaste mensen. Op dit moment is Willem actief als studiodrummer, vaste drummer van Back4More en artistiek leider van 2 klassieke slagwerkensembles (waaronder OBK Bennekom) en is als docent nog werkzaam binnen verschillende muziekverenigingen.
-Zijn achtergrond is klassiek geschoold maar met een grote passie voor drums. Door de jaren heen heeft hij met veel gerenommeerde musici mogen samenspelen welke hem gevormd hebben tot een brede en veelzijdige drummer/percussionist.</div>
+Zijn achtergrond is klassiek geschoold maar met een grote passie voor drums. Door de jaren heen heeft hij met veel gerenommeerde musici mogen samenspelen welke hem gevormd hebben tot een brede en veelzijdige drummer/percussionist.
+
+<br><br><a class="btn btn-default btn-xs" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseDrumband">Sluiten</a></p></center>
+
+</div>
 </div>
 </div>
 </div>
@@ -318,6 +359,7 @@ Zijn achtergrond is klassiek geschoold maar met een grote passie voor drums. Doo
    <div class="panel-body">
       <div class="panel panel-default">
   <div class="panel-heading">
+      <button type="button" class="close" aria-hidden="true" data-toggle="collapse" data-parent="#accordion" href="#collapseTwirl">&times;</button>
     <div class="panel-title"><h3>Twirlers</h3></div>
   <div class="panel-body">
  <div class="col-sm-5">
@@ -348,6 +390,8 @@ Zijn achtergrond is klassiek geschoold maar met een grote passie voor drums. Doo
 </div>
  <div class="col-sm-7">
 Behalve de orkesten en ensembles die zelf muziek maken heeft OBK ook een groep meisjes die muziek gebruiken voor dans en show. Niet alleen op straat bij marsoptredens maar ook in een zaal bij uitvoeringen of wedstrijden zijn deze meisjes actief. In de les wordt ook tijd besteed aan het behalen van certificaten die als leidraad dienen voor doorstroming binnen de vereniging. De groepen en solisten staan onder leiding van instructrice Ilse van Dam
+<br><br><a class="btn btn-default btn-xs" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwirl">Sluiten</a></p></center>
+
 </div>
 </div>
 </div>
@@ -360,7 +404,8 @@ Behalve de orkesten en ensembles die zelf muziek maken heeft OBK ook een groep m
    <div class="panel-body">
       <div class="panel panel-default">
   <div class="panel-heading">
-    <div class="panel-title"><h4>Jeugdopleiding</h4></div>
+      <button type="button" class="close" aria-hidden="true" data-toggle="collapse" data-parent="#accordion" href="#collapseJeugd">&times;</button>
+    <div class="panel-title"><h3>Jeugdopleiding</h3></div>
   <div class="panel-body">
  <div class="col-sm-5">
   <div class="panel panel-default">
@@ -420,6 +465,10 @@ Het jeugslagwerkensemble staat onder leiding van Ruud Roelofsen
 <br /><br />
 <h2><small>Opleiding</small></h2><br />
 Basis voor de opleiding is het raamleerplan van het NIB (Nederlands Instituut voor Blaasmuziek). Wanneer na de AMV-cursus een instrument is gekozen, worden de leerlingen door vakdocenten opgeleid voor het A-diploma, hetgeen meestal twee tot drie jaar duurt. Slagwerkers met het A-diploma mogen naar het slagwerkensemble of het B-orkest. E&#233;n of twee jaar later kan het B-examen worden gedaan en in de regel kan men daarna meespelen in het harmonieorkest. Meestal wordt de opleiding voortgezet en kan men C- en D-examen doen. Het D-diploma geeft aansluiting op het muziekvakonderwijs op conservatoria.
+
+<br><br><a class="btn btn-default btn-xs" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseJeugd">Sluiten</a></p></center>
+
+
 </div>
  </div>
   </div>
@@ -429,6 +478,7 @@ Basis voor de opleiding is het raamleerplan van het NIB (Nederlands Instituut vo
       </div>
        </div>
         </div>
+         </div>
       
        <br></br>
                 
@@ -506,9 +556,8 @@ Basis voor de opleiding is het raamleerplan van het NIB (Nederlands Instituut vo
   </div>
 </div>
 </div>
-    
+   
 </div> <!--Row-->
-</div><!-- /.container -->
 
 <!-- FOOTER -->
 
@@ -523,12 +572,16 @@ Basis voor de opleiding is het raamleerplan van het NIB (Nederlands Instituut vo
   <a href="mailto:info@obkbennekom.nl">info@obkbennekom.nl</a>
 </address>
 </div>
-<img src="/img/thumbs/obkgebouw.jpg" class="gebouwthumb img-thumbnail" alt="">
+<img src="/img/thumbs/obkgebouw.jpg" class="footerimg" alt="Het muziekcentrum aan de Kierkamperweg in Bennekom">
+<img src="/img/thumbs/wordlid.jpg" class="pull-right footerimg" alt="Lid worden">
+<img src="/img/thumbs/aanmelden_nieuwsbrief.png" class="pull-right footerimg" alt="Op de hoogte blijven van alle activiteiten van OBK? Meld u nu aan voor onze nieuwsbrief!">
+
 </div>
+
+</div><!-- /.container -->
     
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-  
+    <!-- JavaScript !-->
+   
     <script src="js/jquery.js"></script>
     <script src="js/jquery.mobile.custom.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -540,12 +593,68 @@ Basis voor de opleiding is het raamleerplan van het NIB (Nederlands Instituut vo
    <!--Swipe support-->
 
 <script>
-  $(document).ready(function() {  
-  		 $("#myCarousel").swiperight(function() {  
-    		  $(this).carousel('prev');  
-	    		});  
-		   $("#myCarousel").swipeleft(function() {  
-		      $(this).carousel('next');  
-	   });  
-	});  
+    $(document).ready(function () {
+        $("#myCarousel").swiperight(function () {
+            $(this).carousel('prev');
+        });
+        $("#myCarousel").swipeleft(function () {
+            $(this).carousel('next');
+        });
+
+   $( ".thumbnail" )
+        .mouseenter(function() {
+            $(this).find('.onderdeelcaption').removeClass("slideOutUp").addClass("slideInDown").show();
+        })
+        .mouseleave(function() {
+            $(this).find('.onderdeelcaption').removeClass("slideInUp").addClass("slideOutUp");
+     });
+});
+ 
+     
+
+    function ShowOnderdeel(onderdeel) {
+
+        $('#Onderdeelinfo').scrollspy();
+
+        $('.collapse').collapse({
+            toggle: false
+        })
+
+
+        switch (onderdeel) {
+
+            case 'orkest':
+                $('#collapseTwirl').collapse('hide');
+                $('#collapseJeugd').collapse('hide');
+                $('#collapseDrumband').collapse('hide');
+                $('#collapseOrkest').collapse('show');
+                break;
+
+            case 'drumband':
+                $('#collapseOrkest').collapse('hide');
+                $('#collapseTwirl').collapse('hide');
+                $('#collapseJeugd').collapse('hide');
+                $('#collapseDrumband').collapse('show');
+                break;
+
+            case 'twirl':
+                $('#collapseOrkest').collapse('hide');
+                $('#collapseDrumband').collapse('hide');
+                $('#collapseJeugd').collapse('hide');
+                $('#collapseTwirl').collapse('show');
+                break;
+
+            case 'jeugd':
+                $('#collapseOrkest').collapse('hide');
+                $('#collapseDrumband').collapse('hide');
+                $('#collapseTwirl').collapse('hide');
+                $('#collapseJeugd').collapse('show');
+                break;
+
+        }
+    
+        window.location="#OnderdeelInfo"
+    
+    }
+
 </script>
