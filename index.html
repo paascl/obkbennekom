@@ -17,9 +17,24 @@
     <link href="css/carousel.css" rel="stylesheet">
     <link href="css/font-awesome.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
+    <link href="css/blueimp-gallery.min.css" rel="stylesheet">
+ 
   </head>
 
 <body data-spy="scroll">
+
+<!--Blueimp image gallery-->
+
+<div id="blueimp-gallery" class="blueimp-gallery">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
+
 
 <!--Login modal-->
 
@@ -54,11 +69,9 @@
   </div>
       </div>
     </div><!-- /.modal-content -->
- 
 
 <!-- Menu-->
 
-  <body>
       <div class="navbar-default">
       <div class="container">
 
@@ -195,8 +208,8 @@
           <center>
             <div class="thumbnail">
                 <div class="onderdeelcaption animated">
-                    <h3>Orkest</h3>
-                    <p><a class="btn btn-default btn-xs" role="button" onclick="ShowOnderdeel('orkest')" rel="tooltip" title="Meer informatie">Informatie</a></p>
+                   <h3>Orkest</h3>
+                   <p><a class="btn btn-inverse" data-toggle="tooltip" role="button" onclick="ShowOnderdeel('orkest')" rel="tooltip" title="A-Orkest">Informatie</a></p>
                   </div>
                 <img src="img/thumbs/orkest.jpg" class="img-rounded" alt="Het harmonieorkest">
             </div>
@@ -207,7 +220,7 @@
             <div class="thumbnail">
                 <div class="onderdeelcaption animated">
                     <h3>Drumband</h3>
-                    <p><a class="btn btn-default btn-xs" role="button" onclick="ShowOnderdeel('drumband')" rel="tooltip" title="Meer informatie">Informatie</a></p>
+                    <p><a class="btn btn-inverse" role="button" data-toggle="tooltip" onclick="ShowOnderdeel('drumband')" rel="tooltip" title="Drumband/slagwerkensemble">Informatie</a></p>
                   </div>
                 <img src="img/thumbs/drumband.jpg" class="img-rounded" alt="De drumband">
             </div>
@@ -216,8 +229,8 @@
           <center>
             <div class="thumbnail">
                 <div class="onderdeelcaption animated">
-                    <h3>Majorettegroep</h3>
-                    <p><a class="btn btn-default btn-xs" role="button" onclick="ShowOnderdeel('twirl')" rel="tooltip" title="Meer informatie">Informatie</a></p>
+                    <h3>Majorette</h3>
+                    <p><a class="btn btn-inverse" role="button" data-toggle="tooltip" onclick="ShowOnderdeel('twirl')" rel="tooltip" title="Majorette/twirl groep">Informatie</a></p>
                   </div>
                 <img src="img/thumbs/twirl.jpg" class="img-rounded" alt="De majorettegroep">
             </div>
@@ -227,7 +240,7 @@
             <div class="thumbnail">
                 <div class="onderdeelcaption animated">
                     <h3>Jeugd</h3>
-                    <p><a class="btn btn-default btn-xs" role="button" onclick="ShowOnderdeel('jeugd')" rel="tooltip" title="Meer informatie">Informatie</a></p>
+                    <p><a class="btn btn-inverse" role="button" data-toggle="tooltip" onclick="ShowOnderdeel('jeugd')" rel="tooltip" title="Jeugdonderdelen">Informatie</a></p>
                   </div>
                 <img src="img/thumbs/jeugd.jpg" class="img-rounded" alt="Opleiding en jeugdorkesten">
             </div>
@@ -238,7 +251,6 @@
    <div class="col-sm-12">
 
 <!--Orkest-->
-       
    <div id="collapseOrkest" class="panel-collapse collapse">
    <div class="panel-body">
       <div class="panel panel-default">
@@ -268,14 +280,15 @@
   </table>
  </div>
 
+<div id="orkest"> 
  <br></br>
- <p><center><img src="img/thumbs/orkest1.jpg" class="onderdeelimg" alt=""></p>
+ <center><p><a href="img/thumbs/orkest1.jpg" title="Het orkest tijdens het KNFM concours 2009"><img src="img/thumbs/orkest1.jpg" class="onderdeelimg"></a></p>
  <br></br>
- <p><img src="img/thumbs/gb.jpg" class="onderdeelimg" alt=""></p></center>
-
+ <p><a href="img/thumbs/gb.jpg" title="Ghislain Bellefroid"><img src="img/thumbs/gb.jpg" class="onderdeelimg"></a></p></center>
+</div>
 </div>
 
-  <div class="col-sm-7">
+<div class="col-sm-7">
 Het harmonieorkest bestaat momenteel uit ongeveer 55 muzikanten en is opgebouwd volgens de traditionele klassieke harmoniebezetting met verschillende hout- en koperblaasinstrumenten en slagwerk. Het orkest speelt sinds 1991 in de eerste divisie (voorheen vaandelafdeling) van de KNFM.<br />
 Het orkest is zich steeds meer aan het ontwikkelen naar een groot concerterend orkest. Deze ontwikkeling werd in 2007 al reeds beloond door deelname aan het topconcert concours in Venlo. De aankomende jaren hoopt het orkest hierin verder te groeien. De eigen jeugdopleiding, het nieuwe muziekcentrum en een aantrekkelijk en kwalitatief goed repertoire moeten hierin bijdragen. Naast de aantrekkingskracht op Bennekomse musici hoopt OBK, door de centrale ligging tussen grote plaatsen als Ede, Veenendaal en Wageningen, ook muzikanten uit de regio te trekken. OBK hoopt de aankomende jaren de toonaangevende muziekvereniging van de regio te worden. 
 <br /><br />
@@ -329,13 +342,15 @@ Eind 2009 won hij een auditie van het Residentie Orkest met als prijs een exclus
   </table>
  </div>
 
+<div id="drumband"> 
  <br></br>
- <p><center><img src="img/thumbs/db.jpg" class="onderdeelimg" alt=""></p>
+ <center><p><a href="img/thumbs/db.jpg" title="De drumband tijdens het WMC 2013"><img src="img/thumbs/db.jpg" class="onderdeelimg"></a></p>
  <br></br>
- <p><img src="img/thumbs/ws.jpg" class="onderdeelimg" alt=""></p></center>
-
+ <p><a href="img/thumbs/ws.jpg" title="Willem Schoonheim"><img src="img/thumbs/ws.jpg" class="onderdeelimg"></a></p></center>
 </div>
-  <div class="col-sm-7">
+</div>
+
+<div class="col-sm-7">
 Het slagwerkensemble telt zo’n 16 slagwerkers. Het ensemble toont zich graag bij diverse buitenoptredens. Met een breed scala aan straatmarsen presenteert het zich als een veelzijdig ensemble. De stijl van het slagwerkensemble bezit Schotse en Amerikaanse invloeden. Het ensemble beschikt niet over melodisch slaginstrumenten. Veel buitenoptredens worden samen met orkest en majorettes verzorgd.
 Naast de buitenoptredens treedt het slagwerkensemble ook op bij concerten. Zij weet het publiek dan te boeien door vakkundig gebruik te maken van een uitgebreid instrumentarium en een afwisselend repertoire. Ook experimenten van beroemde slagwerkgroepen worden niet geschuwd. Creativiteit is het ensemble zeker toevertrouwd.
 <br /><br />In juni 2008 is het slagwerkensemble afgereisd naar Chrudim (Tsjechië) om de bevolking kennis te laten maken met het slagwerk. Een verslag van deze reis is <a href="http://www.obkbennekom.nl/nieuws/158#bericht" class="default_a"><strong>hier</strong></a> te vinden.
@@ -384,9 +399,16 @@ Zijn achtergrond is klassiek geschoold maar met een grote passie voor drums. Doo
  </div>
 
  <br></br>
- <p><center><img src="img/thumbs/twirl.jpg" class="onderdeelimg" alt=""></p>
-
+ 
+     
+<div id="twirl"> 
+ <br></br>
+ <center><p><a href="img/thumbs/twirl.jpg" title="Groepsfoto"><img src="img/thumbs/twirl.jpg" class="onderdeelimg"></a></p>
+ <br></br>
+ </a></p></center>
 </div>
+</div>
+
  <div class="col-sm-7">
 Behalve de orkesten en ensembles die zelf muziek maken heeft OBK ook een groep meisjes die muziek gebruiken voor dans en show. Niet alleen op straat bij marsoptredens maar ook in een zaal bij uitvoeringen of wedstrijden zijn deze meisjes actief. In de les wordt ook tijd besteed aan het behalen van certificaten die als leidraad dienen voor doorstroming binnen de vereniging. De groepen en solisten staan onder leiding van instructrice Ilse van Dam
 <br><br><a class="btn btn-default btn-xs" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwirl">Sluiten</a></p></center>
@@ -432,12 +454,13 @@ Behalve de orkesten en ensembles die zelf muziek maken heeft OBK ook een groep m
    </table> 
 </div>
 
+<div id="jeugd"> 
  <br></br>
- <p><center><img src="img/thumbs/jeugd.jpg" class="onderdeelimg" alt=""></p>
+ <center><p><a href="img/thumbs/jeugd.jpg" title="Het B orkest"><img src="img/thumbs/jeugd.jpg" class="onderdeelimg"></a></p>
  <br></br>
- <p><img src="img/thumbs/gerdwensink.jpg" class="onderdeelimg" alt=""></p></center>
- 
-  </div>
+ <p><a href="img/thumbs/gerdwensink.jpg" title="Gerd Wensink"><img src="img/thumbs/gerdwensink.jpg" class="onderdeelimg"></a></p></center>
+</div>
+</div>
  
  <div class="col-sm-7">
 
@@ -488,40 +511,47 @@ Basis voor de opleiding is het raamleerplan van het NIB (Nederlands Instituut vo
 
 <div class="media">
   <div class="media-body">
-  <a class="pull-right" href="#">
-    <img class="media-object mediaimg" src="img/thumbs/news/zh.jpg" alt="">
-  </a>
+    <div id="newsitem1">
+       <a class="pull-right" href="img/thumbs/news/zh.jpg">
+      <img class="media-object mediaimg" src="img/thumbs/news/zh.jpg">
+  </a></div>
     <h4 class="media-heading">Sfeervolle kerst in Ziekenhuis Gelderse Vallei Ede</h4>
      Op dinsdag 17 december van 18.30-19.30 uur treedt het jeugdorkest van muziekvereniging OBK Bennekom op in de centrale hal van het ziekenhuis Gelderse Vallei. Zij spelen naast traditionele kersliederen, als ‘Stille Nacht’, ook moderne kerstmuziek.    
     <button type="button" class="btn btn-default btn-xs">Meer</button>
   </div>
 </div>
+
     <br></br>
 <div class="media">
   <div class="media-body">
-  <a class="pull-right" href="#">
+  <div id="newsitem2">
+  <a class="pull-right" href="img/thumbs/news/njc.jpg">
     <img class="media-object mediaimg" src="img/thumbs/news/njc.jpg" alt="">
-  </a>
+  </a></div>
     <h4 class="media-heading">Nieuwsjaarsconcert</h4>
     Harmonieorkest OBK Bennekom geeft zaterdag 12 januari het jaarlijkse nieuwjaarsconcert om 16.00 uur in het muziekcentrum aan de Kierkamperweg 36. De toegang is gratis.<br>
     Tijdens dit concert worden onder meer het klassieke 'Danses des Mirlitons (Tsjaikovski), de Ouverture 'L'Italiana in Alg&eacute;ri' (Rossini) en het moderne 'Colonial Song' (Grainger) ten gehore gebracht.
    <button type="button" class="btn btn-default btn-xs">Meer</button> 
   </div>
 </div>
+
     <br></br>
 <div class="media">
   <div class="media-body">
+<div id="newsitem3"></div>
   <a class="pull-right">
-<iframe width="300" height="180" src="//www.youtube.com/embed/Wzo6L904AX0" frameborder="0" allowfullscreen></iframe>  </a>
+<iframe width="320" height="180" src="//www.youtube.com/embed/Wzo6L904AX0?mode=transparent&modestbranding=0&rel=0&showinfo=0&showsearch=0&controls=2&autohide=1" frameborder="0" allowfullscreen></iframe>  </a>
     <h4 class="media-heading">Goud voor drumband tijdens het wmc</h4>
     Zondag 21 juli 2013 heeft de Drumband van OBK Bennekom deelgenomen aan het Wereld Muziek Concours in het Parkstad Limburg Stadion te Kerkrade. Het WMC bevat meerdere muzikale onderdelen, waaronder het onderdeel 'Mars' waar de drumband maar liefst in de hoogste categorie 'World Division' hun show mocht uitvoeren.  Tijdens de uitvoering werd de drumband op diverse aspecten beoordeeld door maar liefst 7 (inter)nationale juryleden.<br>
   <button type="button" class="btn btn-default btn-xs">Meer</button> 
   </div>
   </div>
+
 </div>
+    
  <br></br>
 
-    <!--Agenda-->
+ <!--Agenda-->
 
 <div class="col-sm-4">
 <div class="panel panel-default">
@@ -571,12 +601,16 @@ Basis voor de opleiding is het raamleerplan van het NIB (Nederlands Instituut vo
   <a href="mailto:info@obkbennekom.nl">info@obkbennekom.nl</a>
 </address>
 </div>
-<img src="/img/thumbs/obkgebouw.jpg" class="footerimg" alt="Het muziekcentrum aan de Kierkamperweg in Bennekom">
+  <div id="gebouwfooter">
+   <a href="img/thumbs/obkgebouw.jpg" title="Het muziekcentrum aan de Kierkamperweg in Bennekom" data-gallery>
+        <img src="img/thumbs/obkgebouw.jpg" class="footerimg" alt="Het muziekcentrum aan de Kierkamperweg in Bennekom">
+    </a>
+  
 <img src="/img/thumbs/wordlid.jpg" class="pull-right footerimg" alt="Lid worden">
 <img src="/img/thumbs/aanmelden_nieuwsbrief.png" class="pull-right footerimg" alt="Op de hoogte blijven van alle activiteiten van OBK? Meld u nu aan voor onze nieuwsbrief!">
 
+  </div>
 </div>
-
 </div><!-- /.container -->
     
     <!-- JavaScript !-->
@@ -586,14 +620,10 @@ Basis voor de opleiding is het raamleerplan van het NIB (Nederlands Instituut vo
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap-hover-dropdown.js"></script>
     <script src="js/holder.js"></script>
+    <script src="js/blueimp-gallery.min.js"></script>
     <script src="js/obkfrontend.js"></script>
 
   </body>
 </html>
 
-   <!--Swipe support-->
-
-<script>
-
-
-</script>
+ 

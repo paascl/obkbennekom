@@ -18,6 +18,11 @@
         .mouseleave(function() {
             $(this).find('.onderdeelcaption').removeClass("slideInUp").addClass("slideOutUp");
      });
+
+    $('[data-toggle="tooltip"]').tooltip({ /* Tooltip trigger */
+    animated: 'fade',
+    placement: 'bottom',
+    });
 });
  
     function ShowOnderdeel(onderdeel) { /* Onderdeel informatie uitklappen */
@@ -64,3 +69,76 @@
         window.location="#OnderdeelInfo" /* Autoscroll naar het uitgeklapte onderdeel */
     
     }
+
+    document.getElementById('newsitem1').onclick = function (event) { /* Activeren van nieuws thumbs showen */
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+};
+
+    document.getElementById('newsitem2').onclick = function (event) { /* Activeren van nieuws thumbs showen */
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+};
+
+   document.getElementById('newsitem3').onclick = function (event) { /* Activeren van nieuws thumbs showen */
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+};
+
+
+    document.getElementById('orkest').onclick = function (event) { /* Activeren van nieuws thumbs showen */
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+};
+
+    document.getElementById('drumband').onclick = function (event) { /* Activeren van nieuws thumbs showen */
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+};
+
+    document.getElementById('twirl').onclick = function (event) { /* Activeren van nieuws thumbs showen */
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+};
+
+    document.getElementById('jeugd').onclick = function (event) { /* Activeren van nieuws thumbs showen */
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+};
+
+    document.getElementById('gebouwfooter').onclick = function (event) { /* Activeren van gebouw image aan de footer showen */
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+};
