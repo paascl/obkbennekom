@@ -74,24 +74,23 @@
 
       <div class="navbar-default">
       <div class="container">
-
         <div class="navbar navbar-default navbar-static-top" role="navigation">
-           <button type="button" class="btn btn-default navbar-right navbar-btn" data-toggle="modal" data-target="#login">Login</button>
-            <div class="container">
-            <div class="navbar-header">
-             <img src="img/logo.png" class="img-responsive" alt="">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <button type="button" class="btn btn-default navbar-right navbar-btn hidden-xs" data-toggle="modal" data-target="#login">Login</button>
+              <button type="button" class="btn navbar-toggle navbar-right navbar-btn" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-            </div>
-              
-              <div class="navbar-collapse collapse">
-
+          <div class="navbar-header">
+            <img src="img/logo.png" class="img-responsive navbar-left" alt=""> 
+          </div>  
+        
+            <div class="navbar-collapse collapse">
+                    
               <ul class="nav navbar-nav">
-               <li class="dropdown">
+                 <li><a class="btn btn-link visible-xs" role="button" data-toggle="modal" data-target="#login">Leden login</a><hr></li>
+                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">De vereniging <b class="caret"></b></a>
                   <ul class="dropdown-menu">
                     <li class="divider"></li> <!--Ruimte voor zoekbalk op tablet-->
@@ -128,7 +127,7 @@
                     <li><a class="btn btn-link" role="button" onclick="">Lidmaatschap opzeggen</a></li>
                   </ul>
                 </li>
-              </ul>
+             </ul>
     <form class="navbar-form " role="search">
      <div class="input-group col-lg-4">
       <input type="text" class="form-control" placeholder="Nieuws">
@@ -136,7 +135,7 @@
        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
       </span></div></form>
           </div>
-         </div>
+         
         </div>
        </div>
       </div>
