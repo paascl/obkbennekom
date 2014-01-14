@@ -23,7 +23,31 @@
     animated: 'fade',
     placement: 'bottom',
     });
-});
+
+
+     $(function () { /* Loginprocedure */
+        $('form').on('submit', function (e) {
+        request = $.ajax({
+        url: "../php/login.php",
+        type: "post",
+        data: serializedData
+       });
+
+        request.done(function (response, textStatus, jqXHR){
+        alert("Hooray, it worked!");
+       });
+
+         request.fail(function (jqXHR, textStatus, errorThrown) {
+         alert(textStatus, errorThrown);
+                
+          });
+
+         });
+           e.preventDefault();
+        });
+
+
+}); /* Einde DOM */
  
     function ShowOnderdeel(onderdeel) { /* Onderdeel informatie uitklappen */
 
@@ -142,3 +166,17 @@
         links = this.getElementsByTagName('a');
     blueimp.Gallery(links, options);
 };
+
+$("#wronguser").click(function() { /* Alert: gebruikersnaam of wachtwoord onjuist */
+  $(document).trigger("add-alerts", [
+    {
+      'message': "<span class='glyphicon glyphicon-warning-sign'></span> Gebruikersnaam en/of wachtwoord is onjuist.",
+      'priority': 'error'
+    }
+  ]);
+});
+
+
+      
+
+     
