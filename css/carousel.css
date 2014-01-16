@@ -4,7 +4,7 @@
 /* Padding below the footer and lighter body text */
 
 body {
-  padding-bottom: 40px;
+  padding-bottom: 0px;
   color: #5a5a5a;
 }
 
@@ -38,8 +38,8 @@ body {
 
 /* Carousel base class */
 .carousel {
-  height: 350px;
-  margin-bottom: 60px;
+  height: 360px;
+  margin-bottom: 0px;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
@@ -48,15 +48,15 @@ body {
 
 /* Declare heights because of positioning of img element */
 .carousel .item {
-  height: 350px;
+  height: 360px;
   background-color: #777;
 }
 .carousel-inner > .item > img {
   position: absolute;
   top: 0;
   left: 0;
-  min-width: 100%;
-  height: 400px;
+  width: auto;
+  height: auto;
 }
 
 

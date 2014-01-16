@@ -19,7 +19,34 @@
             $(this).find('.onderdeelcaption').removeClass("slideInUp").addClass("slideOutUp");
      });
 
-       
+    $('[data-toggle="tooltip"]').tooltip({ /* Tooltip trigger */
+    animated: 'fade',
+    placement: 'bottom',
+    });
+
+
+     $(function () { /* Loginprocedure */
+        $('form').on('submit', function (e) {
+        request = $.ajax({
+        url: "../php/login.php",
+        type: "post",
+        data: serializedData
+       });
+
+        request.done(function (response, textStatus, jqXHR){
+        alert("Hooray, it worked!");
+       });
+
+         request.fail(function (jqXHR, textStatus, errorThrown) {
+         alert(textStatus, errorThrown);
+                
+          });
+
+         });
+           e.preventDefault();
+        });
+
+
 }); /* Einde DOM */
  
     function ShowInfo(item) { /* Onderdeel informatie uitklappen */
@@ -140,64 +167,16 @@
     blueimp.Gallery(links, options);
 };
 
-
-$(function () { /* Login procedure */
-    $(".login").click(function () {
-        var login = $("#inputEmail").val();
-        var password = $("#inputPassword").val();
-        var atpos = login.indexOf("@");
-        var dotpos = login.lastIndexOf(".");
-        var dataString = 'login=' + login + '&password=' + password;
-
-        $(".login").button('loading')
-
-        $('.passworderror').fadeOut(200).hide();
-        $('.loginerror').fadeOut(200).hide();
-
-
-        if (login == '' || atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= login.length) {
-            $('.loginerror').fadeOut(200).show();
-            $(".login").button('reset')
-
-        }
-        else if (password == '') {
-            $('.passworderror').fadeOut(200).show();
-            $(".login").button('reset')
-        }
-
-
-        else {
-            $.ajax({
-                type: "POST",
-                url: "../php/login.php",
-                data: dataString,
-                success: function (output) {
-                    status = JSON.parse(output);
-                    
-                    if (status == 'loginerror') {
-                     $(document).trigger("add-alerts", [
-                    {
-                     'message': "<span class='glyphicon glyphicon-warning-sign'></span> Gebruikersnaam en/of wachtwoord is onjuist.",
-                     'priority': 'error'
-                    }
-                    ]);
-                    $(".login").button('reset')    
-                    }
-
-                    if (status == 'loginsuccess') {
-                     $('#loginmodal').modal('hide')             
-                    $(".login").button('reset')
-                    $('.loginbtn').fadeOut(200).hide();
-                    $('.profielbtn').fadeOut(200).show();
-                    }
-
-
-                }
-            });
-          }
-        return false;
-        });
-
+$("#wronguser").click(function() { /* Alert: gebruikersnaam of wachtwoord onjuist */
+  $(document).trigger("add-alerts", [
+    {
+      'message': "<span class='glyphicon glyphicon-warning-sign'></span> Gebruikersnaam en/of wachtwoord is onjuist.",
+      'priority': 'error'
+    }
+  ]);
 });
+
+
       
 
+     

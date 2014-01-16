@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -39,7 +38,7 @@
 
 <!--Login modal-->
 
-<div class="modal fade" id="login">
+<div class="modal fade" id="loginmodal">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -50,101 +49,209 @@
 
  <div data-alerts="alerts" data-fade="3000"></div>
         
-<form class="form-horizontal" role="form">
+<form class="form-horizontal" role="form" id="loginform">
   <div class="form-group">
     <label for="inputEmail" class="col-sm-2 control-label">Email</label>
     <div class="col-sm-10">
       <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+      <span class="loginerror" style="display:none"> Voer een geldig email adres in. </span>  
     </div>
   </div>
   <div class="form-group">
-    <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+    <label for="inputPassword" class="col-sm-2 control-label">Wachtwoord</label>
     <div class="col-sm-10">
       <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-       <br><a href="#">Login aanvragen</a> (alleen voor leden)</br>
+       <span class="passworderror" style="display:none"> Voer een wachtwoord in. </span>  
     </div>
   </div>
    <div class="modal-footer">
-     <button type="submit" class="btn btn-primary">Inloggen</button>
-     </form> 
+     <button type="submit" class="btn btn-primary login" data-loading-text="Valideren...">Inloggen</button>
+      <p></p><br><a href="#">Login aanvragen</a></br>                       
+
    </div> 
-  
+    </form>
     </div>
   </div>
       </div>
     </div><!-- /.modal-content -->
 
-<!-- Menu-->
+<!-- Desktop en tablet menu-->
 
-      <div class="navbar-default">
-      <div class="container">
-        <div class="navbar navbar-default navbar-static-top" role="navigation">
-              <button type="button" class="btn btn-default navbar-right navbar-btn hidden-xs" data-toggle="modal" data-target="#login">Login</button>
+      <div class="navbar-default navbar-static-top navbar-fixed-top hidden-xs" role="navigation">
+       <div class="container">
+           <span class="loginbtn">
+              <button type="button" class="btn btn-default navbar-right navbar-btn hidden-xs" data-toggle="modal" data-target="#loginmodal">Login</button>
+           </span>
+           <span class="profielbtn pull-right" style="display:none"> <!--Profielknop-->
+              <div class="btn-group">
+               <button type="button" class="btn btn-link navbar-btn dropdown-toggle hidden-xs" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Pascal Eikenaar <span class="caret"></span></button>
+               <ul class="dropdown-menu" role="menu">
+               <li><a href="#">Dashboard</a></li>
+               <li><a href="#">Profiel bewerken</a></li>
+               <li role="presentation" class="divider"></li>
+               <li><a href="#">Uitloggen</a></li>
+               </ul>
+              </div>
+           </span>
+
+           <div class="navbar-header">
+            <img src="img/logo.png" class="img-responsive navbar-left" alt=""> 
+          </div>  
+    <div class="navbar-collapse collapse">
+                 
+     <!--Dropdown-->           
+                           
+              <ul class="nav navbar-nav">
+                 <li><a class="btn btn-link visible-xs" role="button" data-toggle="modal" data-target="#loginmodal">Leden login</a><hr></li>
+                 <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Over OBK <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a class="btn btn-link" role="button" onclick="">Algemene informatie</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="">Historie</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="">Muziekcentrum</a></li>
+
+                  </ul>
+                </li>
+               <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Onderdelen <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a class="btn btn-link" role="button" onclick="ShowInfo('orkest')">Harmonieorkest</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="ShowInfo('drumband')">Drumband</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="ShowInfo('twirl')">Twirling</a></li>
+                  </ul>
+                </li>
+               <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Opleiding <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a class="btn btn-link" role="button" onclick="">Muziekles en examens</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="">AMV</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="ShowInfo('jeugd')">Opleidingsorkesten</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="">Slagwerkopleiding</a></li>
+                  </ul>
+                </li>
+               <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Contact <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a class="btn btn-link" role="button" onclick="">Lid worden</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="">Steun OBK</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="">Houd mij op de hoogte</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="">Bestuur en commissies</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="">Adres en route</a></li>
+                  </ul>
+                </li>
+             </ul>
+             <ul class="nav navbar-nav">
+                <li><a class="btn btn-link" role="button" onclick="">Tickets <span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+             </ul>
+   
+    <form class="navbar-form" role="search">
+     <div class="input-group col-sm-3 navbar-right">
+      <input type="text" class="form-control" placeholder="Nieuws">
+       <span class="input-group-btn">
+       <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+      </span></div></form>
+        
+    
+     </div>
+      </div>
+       </div> <!--Navbar-->
+
+<!-- Mobile menu-->
+
+      <div class="navbar-default navbar-static-top show-xs" role="navigation">
+               
+              <button type="button" class="btn btn-default navbar-right navbar-btn hidden-xs" data-toggle="modal" data-target="#loginmodal">Login</button>
               <button type="button" class="btn navbar-toggle navbar-right navbar-btn" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
+ 
+             <span class="profielbtn pull-right" style="display:none"> <!--Profielknop-->
+              <div class="btn-group">
+               <button type="button" class="btn btn-link navbar-btn dropdown-toggle show-xs" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Pascal Eikenaar <span class="caret"></span></button>
+               <ul class="dropdown-menu" role="menu">
+               <li><a href="#">Dashboard</a></li>
+               <li><a href="#">Profiel bewerken</a></li>
+               <li role="presentation" class="divider"></li>
+               <li><a href="#">Uitloggen</a></li>
+               </ul>
+              </div>
+           </span>
+    
+          
+          
           <div class="navbar-header">
             <img src="img/logo.png" class="img-responsive navbar-left" alt=""> 
           </div>  
-        
-            <div class="navbar-collapse collapse">
-                    
+    <div class="navbar-collapse collapse">
+                 
+     <!--Dropdown-->           
+                           
               <ul class="nav navbar-nav">
-                 <li><a class="btn btn-link visible-xs" role="button" data-toggle="modal" data-target="#login">Leden login</a><hr></li>
+                 <li><a class="btn btn-link visible-xs" role="button" data-toggle="modal" data-target="#loginmodal">Leden login</a><hr></li>
                  <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">De vereniging <b class="caret"></b></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Over OBK <b class="caret"></b></a>
                   <ul class="dropdown-menu">
                     <li><a class="btn btn-link" role="button" onclick="">Algemene informatie</a></li>
-                    <li><a class="btn btn-link" role="button" onclick="ShowOnderdeel('orkest')">Harmonie orkest</a></li>
-                    <li><a class="btn btn-link" role="button" onclick="ShowOnderdeel('drumband')">Drumband</a></li>
-                    <li><a class="btn btn-link" role="button" onclick="ShowOnderdeel('twirl')">Majorette/twirlgroep</a></li>
-                    <li><a class="btn btn-link" role="button" onclick="ShowOnderdeel('jeugd')">Jeugd</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="">Historie</a></li>
                     <li><a class="btn btn-link" role="button" onclick="">Muziekcentrum</a></li>
-                    <li><a class="btn btn-link" role="button" onclick="">Bestuur en commissies</a></li>
 
+                  </ul>
+                </li>
+               <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Onderdelen <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a class="btn btn-link" role="button" onclick="ShowInfo('orkest')">Harmonieorkest</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="ShowInfo('drumband')">Drumband</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="ShowInfo('twirl')">Twirling</a></li>
                   </ul>
                 </li>
                <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Opleiding <b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                    <li><a class="btn btn-link" role="button" onclick="">Opleidingsplan</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="">Muziekles en examens</a></li>
                     <li><a class="btn btn-link" role="button" onclick="">AMV</a></li>
-                    <li><a class="btn btn-link" role="button" onclick="">B-orkest</a></li>
-                    <li><a class="btn btn-link" role="button" onclick="">C-orkest</a></li>
-                    <li><a class="btn btn-link" role="button" onclick="">B-drumband</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="ShowInfo('jeugd')">Opleidingsorkesten</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="">Slagwerkopleiding</a></li>
                   </ul>
                 </li>
                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Interactie <b class="caret"></b></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Contact <b class="caret"></b></a>
                   <ul class="dropdown-menu">
                     <li><a class="btn btn-link" role="button" onclick="">Lid worden</a></li>
-                    <li><a class="btn btn-link" role="button" onclick="">Kaartverkoop/reserveren</a></li>
-                    <li><a class="btn btn-link" role="button" onclick="">Informatie aanvragen</a></li>
-                    <li><a class="btn btn-link" role="button" onclick="">Nieuwsbrief</a></li>
-                    <li><a class="btn btn-link" role="button" onclick="">Donateur worden</a></li>
-                    <li><a class="btn btn-link" role="button" onclick="">Lidmaatschap opzeggen</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="">Steun OBK</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="">Houd mij op de hoogte</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="">Bestuur en commissies</a></li>
+                    <li><a class="btn btn-link" role="button" onclick="">Adres en route</a></li>
                   </ul>
                 </li>
              </ul>
+             <ul class="nav navbar-nav">
+                <li><a class="btn btn-link" role="button" onclick="">Tickets <span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+             </ul>
+   
     <form class="navbar-form " role="search">
-     <div class="input-group col-lg-4">
+     <div class="input-group col-sm-3">
       <input type="text" class="form-control" placeholder="Nieuws">
        <span class="input-group-btn">
        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
       </span></div></form>
-          </div>
-         
-        </div>
-       </div>
-      </div>
-   <div class="container">
+        
+    
+           </div>
+       </div> <!--Navbar-->
+
+   
+<div class="container"> <!--Container-->
+
+<div class="row"> <!--ROW-->
+    <div class="col-sm-10">
             
  <!-- Carousel !-->
   
-    <div id="myCarousel" class="carousel caption slide hidden-xs" data-ride="carousel">
+   <div id="myCarousel" class="carousel caption slide hidden-xs" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -155,34 +262,27 @@
       <div class="carousel-inner">
         <div class="item active">
           <img src="img/carousel/test2.jpg" alt="">
-          <div class="container">
             <div class="carousel-caption">
               <h2>Nieuwjaarsconcert.</h2>
               <p><a class="btn btn-lg btn-primary" href="#" role="button">Lees meer</a></p>
             </div>
           </div>
-        </div>
         <div class="item">
           <img src="img/carousel/orkest1.jpg" alt="">
-          <div class="container">
             <div class="carousel-caption">
               <h2>Concert</h2>
               <p><a class="btn btn-lg btn-danger" href="#" role="button">Bestel kaarten</a></p>
             </div>
           </div>
-        </div>
     <div class="item">
           <img src="img/carousel/drumband.jpg" alt="">
-          <div class="container">
             <div class="carousel-caption">
               <h2>Goud voor drumband tijdens het WMC.</h2>
               <p><a class="btn btn-lg btn-primary" href="#" role="button">Lees meer</a></p>
             </div>
           </div>
-        </div>
        <div class="item">
           <img src="img/carousel/agenda1.jpg" alt="">
-          <div class="container">
             <div class="carousel-caption">
               <h2>Aankomende activiteiten</h2>
               <h3><p>Nieuwjaarsconcert 10 Januari 2013</p></h3>
@@ -190,65 +290,66 @@
               <p><a class="btn btn-lg btn-default" href="#" role="button">Volledige agenda</a></p>
             </div>
           </div>
-        </div>
-      
-      
+    
       </div>
       <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
     </div>
-        
-  <!--Onderdelen-->
 
-<div id="OnderdeelInfo">
+</div> <!--Coll carrousel-->
+
+    <div class="col-sm-2 hidden-xs"> <!--Coll onderdelen-->
 
       <div class="panel-group" id="accordion">
-       <div class="row">
-        <div class="col-sm-3 hidden-xs">
-          <center>
-            <div class="thumbnail">
+        <div class="row">
+           <div class="thumbnail">
                 <div class="onderdeelcaption animated">
                    <h3>Orkest</h3>
-                   <p><a class="btn btn-inverse" data-toggle="tooltip" role="button" onclick="ShowOnderdeel('orkest')" rel="tooltip" title="A-Orkest">Informatie</a></p>
+                   <p><a class="btn btn-inverse btn-xs" data-toggle="tooltip" role="button" onclick="ShowInfo('orkest')" rel="tooltip" title="A-Orkest">Informatie</a></p>
                   </div>
-                <img src="img/thumbs/orkest.jpg" class="img-rounded" alt="Het harmonieorkest">
+                <img src="img/thumbs/orkest.jpg" alt="Het harmonieorkest">
             </div>
         </div>
       
-        <div class="col-sm-3 hidden-xs">
-          <center>
+        <div class="row">
             <div class="thumbnail">
                 <div class="onderdeelcaption animated">
                     <h3>Drumband</h3>
-                    <p><a class="btn btn-inverse" role="button" data-toggle="tooltip" onclick="ShowOnderdeel('drumband')" rel="tooltip" title="Drumband/slagwerkensemble">Informatie</a></p>
+                    <p><a class="btn btn-inverse btn-xs" role="button" data-toggle="tooltip" onclick="ShowInfo('drumband')" rel="tooltip" title="Drumband/slagwerkensemble">Informatie</a></p>
                   </div>
-                <img src="img/thumbs/drumband.jpg" class="img-rounded" alt="De drumband">
+                <img src="img/thumbs/drumband.jpg" alt="De drumband">
             </div>
         </div>
-        <div class="col-sm-3 hidden-xs">
-          <center>
+        <div class="row">
             <div class="thumbnail">
                 <div class="onderdeelcaption animated">
-                    <h3>Majorette</h3>
-                    <p><a class="btn btn-inverse" role="button" data-toggle="tooltip" onclick="ShowOnderdeel('twirl')" rel="tooltip" title="Majorette/twirl groep">Informatie</a></p>
+                    <h3>Twirl</h3>
+                    <p><a class="btn btn-inverse btn-xs" role="button" data-toggle="tooltip" onclick="ShowInfo('twirl')" rel="tooltip" title="Majorette/twirl groep">Informatie</a></p>
                   </div>
-                <img src="img/thumbs/twirl.jpg" class="img-rounded" alt="De majorettegroep">
+                <img src="img/thumbs/twirl.jpg" alt="De majorettegroep">
             </div>
         </div>
-        <div class="col-sm-3 hidden-xs">
-          <center>
+        <div class="row">
             <div class="thumbnail">
                 <div class="onderdeelcaption animated">
                     <h3>Jeugd</h3>
-                    <p><a class="btn btn-inverse" role="button" data-toggle="tooltip" onclick="ShowOnderdeel('jeugd')" rel="tooltip" title="Jeugdonderdelen">Informatie</a></p>
+                    <p><a class="btn btn-inverse btn-xs" role="button" data-toggle="tooltip" onclick="ShowInfo('jeugd')" rel="tooltip" title="Jeugdonderdelen">Informatie</a></p>
                   </div>
-                <img src="img/thumbs/jeugd.jpg" class="img-rounded" alt="Opleiding en jeugdorkesten">
+                <img src="img/thumbs/jeugd.jpg" alt="Opleiding en jeugdorkesten">
             </div>
         </div>
-    </div> 
  
-   <div class="row">
-   <div class="col-sm-12">
+        
+</div> <!--Panel group-->
+</div> <!--Coll onderdelen-->
+</div> <!--Row--> 
+
+
+<div id="showinfo">
+<div class="row">
+<div class="col-sm-12">
+
+    <br class="hidden-xs"></br>
 
 <!--Orkest-->
    <div id="collapseOrkest" class="panel-collapse collapse">
@@ -263,7 +364,7 @@
   <div class="panel-heading"><strong>Algemene info</strong></div>
   <div class="panel-body">
   </div>
-
+     
   <table class="table">
     <tr>
     <td><b>Dirigent:</b></td>
@@ -298,8 +399,8 @@ Op het jaarprogramma van het orkest staan meerdere concerten gepland. Het orkest
 <br /><br />
 Naast het concerterend gebeuren is het orkest ook terug te vinden en te horen bij de sociale gebeurtenissen in Bennekom. Festiviteiten als Sinterklaas, Koninginnedag en de Bennekomse Vlegeldag worden door het orkest (samen met het slagwerkensemble en majorettegroep) opgeluisterd. 
 <br /><br />
-Het orkest repeteert op dinsdagavond van 19.45 uur tot 22.00 uur.<br /><br /><h2><small>Dirigent</small></h2>Ghislain Bellefroid studeerde orkestdirectie bij de Engelse dirigentenpedagoog Kerry Woodward en Hafa directie bij Jan Cober en Gert Buitenhuis. Na zijn studie volgde hij enkele cursussen en masterclasses bij:  Jorma Panula, Ed Spanjaard, Roberto Benzi en Arie van Beek. In 2009 volgde hij de bekende cursus bij Gianluigi Gelmetti en Maurizio Dones aan de "Academia Musicale Chigiana".<br /><br />
-Eind 2009 won hij een auditie van het Residentie Orkest met als prijs een exclusieve masterclass van Edo de Waart. Bellefroid leidde al meerdere beroepsorkesten in binnen-en buitenland met repertoire van o.a. Beethoven, Verdi, Wagner, Bruckner en Stravinsky. <br /><br />Hij tracht in zijn muzikale benadering vernieuwend en verfrissend te zijn. Dit kan zijn door een bepaalde benadering van de partituur of de samenwerking met een bijzondere solist of kunstvorm. Op dit moment is Ghislain assistent van chefdirigent Jan Willem de Vriend.
+Het orkest repeteert op dinsdagavond van 19.45 uur tot 22.00 uur.<br /><br /><h2><small>Dirigent</small></h2>Ghislain Bellefroid studeerde orkestdirectie bij de Engelse dirigentenpedagoog Kerry Woodward en Hafa directie bij Jan Cober en Gert Buitenhuis. Na zijn studie volgde hij enkele cursussen en masterclasses bij:  Jorma Panula, Ed Spanjaard, Roberto Benzi en Arie van Beek. In 2009 volgde hij de bekende cursus bij Gianluigi Gelmetti en Maurizio Dones aan de "Academia Musicale Chigiana".<br /><br />
+Eind 2009 won hij een auditie van het Residentie Orkest met als prijs een exclusieve masterclass van Edo de Waart. Bellefroid leidde al meerdere beroepsorkesten in binnen-en buitenland met repertoire van o.a. Beethoven, Verdi, Wagner, Bruckner en Stravinsky. <br /><br />Hij tracht in zijn muzikale benadering vernieuwend en verfrissend te zijn. Dit kan zijn door een bepaalde benadering van de partituur of de samenwerking met een bijzondere solist of kunstvorm. Op dit moment is Ghislain assistent van chefdirigent Jan Willem de Vriend.
 <br><br><a class="btn btn-default btn-xs" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOrkest">Sluiten</a></p></center>
 
 
@@ -356,7 +457,7 @@ Naast de buitenoptredens treedt het slagwerkensemble ook op bij concerten. Zij w
 <br /><br />In juni 2008 is het slagwerkensemble afgereisd naar Chrudim (Tsjechië) om de bevolking kennis te laten maken met het slagwerk. Een verslag van deze reis is <a href="http://www.obkbennekom.nl/nieuws/158#bericht" class="default_a"><strong>hier</strong></a> te vinden.
 <br /><br />Op zondag 12 juli 2009 debuteerde de drumband van OBK Bennekom op het WMC (World Music Contest) te Kerkrade. Met een score van 84.87 punten mag OBK terugkijken op een geslaagd debuut. 
 <br /><br />
-Het slagwerkensemble repeteert op donderdagavond van 20.00 uur tot 22.00 uur. Instructeur is Willem Schoonheim.<h2><small>Instructeur</small></h2>Willem is op 6 jarige leeftijd zelf besmet met het slagwerkvirus en heeft dit overgebracht op vele enthousiaste mensen. Op dit moment is Willem actief als studiodrummer, vaste drummer van Back4More en artistiek leider van 2 klassieke slagwerkensembles (waaronder OBK Bennekom) en is als docent nog werkzaam binnen verschillende muziekverenigingen.
+Het slagwerkensemble repeteert op donderdagavond van 20.00 uur tot 22.00 uur. Instructeur is Willem Schoonheim.<h2><small>Instructeur</small></h2>Willem is op 6 jarige leeftijd zelf besmet met het slagwerkvirus en heeft dit overgebracht op vele enthousiaste mensen. Op dit moment is Willem actief als studiodrummer, vaste drummer van Back4More en artistiek leider van 2 klassieke slagwerkensembles (waaronder OBK Bennekom) en is als docent nog werkzaam binnen verschillende muziekverenigingen.
 Zijn achtergrond is klassiek geschoold maar met een grote passie voor drums. Door de jaren heen heeft hij met veel gerenommeerde musici mogen samenspelen welke hem gevormd hebben tot een brede en veelzijdige drummer/percussionist.
 
 <br><br><a class="btn btn-default btn-xs" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseDrumband">Sluiten</a></p></center>
@@ -497,13 +598,11 @@ Basis voor de opleiding is het raamleerplan van het NIB (Nederlands Instituut vo
    </div>
     </div>
      </div> 
-      </div>
-       </div>
-        </div>
-         </div>
-      
-       <br></br>
-                
+      </div> <!--Coll-->  
+       </div> <!--Row-->
+        </div> <!--Onderdeelinfo--> 
+      <br></br>
+
  <!--Laatse nieuws-->
 
 <div class="row">
@@ -547,9 +646,36 @@ Basis voor de opleiding is het raamleerplan van het NIB (Nederlands Instituut vo
   </div>
   </div>
 
+    <br></br>
+   <center><p><a href="#">- Meer nieuws -</a></center>
+ 
+</div>
+
+ <!--Houd mij op de hoogte-->
+
+<div class="col-sm-4">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><strong><span class="glyphicon glyphicon-send"></span> Houd mij op de hoogte</strong></h3>
+  </div>
+  <div class="panel-body"> 
+<form class="form-horizontal" role="form">
+  <div class="form-group">
+    <div class="col-sm-12">
+      <input type="text" class="form-control" id="inputNaam" placeholder="Uw naam">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-12">
+      <input type="email" class="form-control" id="inputEmail" placeholder="E-mail">
+    </div>
+  </div>
+     <button type="submit" class="btn btn-primary pull-right">Verzenden</button>
+</form>
+   </div>
+  </div>
 </div>
     
- <br></br>
 
  <!--Agenda-->
 
@@ -570,6 +696,8 @@ Basis voor de opleiding is het raamleerplan van het NIB (Nederlands Instituut vo
     <center><p><a href="#">Volledige agenda</a></center>
   </div>
 </div>
+
+<div class="col-sm-8"></div>
 
  <!--Social media-->
 <div class="col-sm-4">
@@ -607,12 +735,13 @@ Basis voor de opleiding is het raamleerplan van het NIB (Nederlands Instituut vo
     </a>
   
 <img src="/img/thumbs/wordlid.jpg" class="pull-right footerimg" alt="Lid worden">
-<img src="/img/thumbs/aanmelden_nieuwsbrief.png" class="pull-right footerimg" alt="Op de hoogte blijven van alle activiteiten van OBK? Meld u nu aan voor onze nieuwsbrief!">
 
   </div>
 </div>
-</div><!-- /.container -->
-    
+
+
+</div> <!--Container-->
+
     <!-- JavaScript !-->
    
     <script src="js/jquery.js"></script>
@@ -622,9 +751,8 @@ Basis voor de opleiding is het raamleerplan van het NIB (Nederlands Instituut vo
     <script src="js/holder.js"></script>
     <script src="js/blueimp-gallery.min.js"></script>
     <script src="js/jquery.bsAlerts.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
     <script src="js/obkfrontend.js"></script>
 
   </body>
 </html>
-
- 
