@@ -32,7 +32,7 @@
             var $this = $(this),
                 $parent = $this.parent(),
                 defaults = {
-                    delay: 500,
+                    delay: 0,
                     instantlyCloseOthers: true
                 },
                 data = {

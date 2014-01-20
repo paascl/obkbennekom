@@ -5303,12 +5303,12 @@ a.list-group-item.active > .badge,
 
 .thumbnail {
   display: block;
-  padding: 4px;
-  margin-bottom: 20px;
+  padding: 0px;
+  margin-bottom: 0px;
   line-height: 1.428571429;
-  background-color: #ffffff;
-  border: 1px solid #dddddd;
-  border-radius: 4px;
+  background-color: #f8f8f8;
+  border: 2px solid #000000;
+  border-radius: 0px;
   -webkit-transition: all 0.2s ease-in-out;
           transition: all 0.2s ease-in-out;
 }
@@ -5316,8 +5316,8 @@ a.list-group-item.active > .badge,
 .thumbnail > img,
 .thumbnail a > img {
   display: block;
-  height: auto;
-  max-width: 100%;
+  height: 86px;
+  width: 100%;
   margin-right: auto;
   margin-left: auto;
 }
