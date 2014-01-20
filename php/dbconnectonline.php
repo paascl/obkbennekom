@@ -1,9 +1,9 @@
 <?php
 
-$dbname = "obkbennekom";
-$username = "obkdbuser";
+$dbname = "a9776493_obk";
+$username = "a9776493_obk";
 $password = "K13rk@mp36";
-$hostname = "localhost"; 
+$hostname = "mysql11.000webhost.com"; 
 
 //connection to the database
 $conn = mysql_connect($hostname, $username, $password) or die(mysql_error);
