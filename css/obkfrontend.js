@@ -94,7 +94,7 @@
     
     }
 
-    document.getElementById('newsitem1').onclick = function (event) { /* Activeren van nieuws thumbs showen */
+    document.getElementById('newsitem1').onclick = function (event) { /* Fotoalbums */
     event = event || window.event;
     var target = event.target || event.srcElement,
         link = target.src ? target.parentNode : target,
@@ -103,7 +103,7 @@
     blueimp.Gallery(links, options);
 };
 
-    document.getElementById('newsitem2').onclick = function (event) { /* Activeren van nieuws thumbs showen */
+    document.getElementById('newsitem2').onclick = function (event) { 
     event = event || window.event;
     var target = event.target || event.srcElement,
         link = target.src ? target.parentNode : target,
@@ -112,7 +112,7 @@
     blueimp.Gallery(links, options);
 };
 
-   document.getElementById('newsitem3').onclick = function (event) { /* Activeren van nieuws thumbs showen */
+   document.getElementById('newsitem3').onclick = function (event) { 
     event = event || window.event;
     var target = event.target || event.srcElement,
         link = target.src ? target.parentNode : target,
@@ -122,7 +122,7 @@
 };
 
 
-    document.getElementById('orkest').onclick = function (event) { /* Activeren van nieuws thumbs showen */
+    document.getElementById('Orkest').onclick = function (event) { 
     event = event || window.event;
     var target = event.target || event.srcElement,
         link = target.src ? target.parentNode : target,
@@ -131,7 +131,7 @@
     blueimp.Gallery(links, options);
 };
 
-    document.getElementById('drumband').onclick = function (event) { /* Activeren van nieuws thumbs showen */
+    document.getElementById('Drumband').onclick = function (event) { 
     event = event || window.event;
     var target = event.target || event.srcElement,
         link = target.src ? target.parentNode : target,
@@ -140,7 +140,7 @@
     blueimp.Gallery(links, options);
 };
 
-    document.getElementById('twirl').onclick = function (event) { /* Activeren van nieuws thumbs showen */
+    document.getElementById('Twirl').onclick = function (event) { 
     event = event || window.event;
     var target = event.target || event.srcElement,
         link = target.src ? target.parentNode : target,
@@ -149,7 +149,7 @@
     blueimp.Gallery(links, options);
 };
 
-    document.getElementById('jeugd').onclick = function (event) { /* Activeren van nieuws thumbs showen */
+    document.getElementById('Jeugd').onclick = function (event) { 
     event = event || window.event;
     var target = event.target || event.srcElement,
         link = target.src ? target.parentNode : target,
@@ -158,7 +158,7 @@
     blueimp.Gallery(links, options);
 };
 
-    document.getElementById('gebouwfooter').onclick = function (event) { /* Activeren van gebouw image aan de footer showen */
+    document.getElementById('gebouwfooter').onclick = function (event) { 
     event = event || window.event;
     var target = event.target || event.srcElement,
         link = target.src ? target.parentNode : target,

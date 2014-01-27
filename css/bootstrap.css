@@ -304,7 +304,7 @@ html {
 
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.428571429;
   color: #333333;
   background-color: #f8f8f8;
@@ -2315,7 +2315,7 @@ fieldset[disabled] .btn {
   color: #333333;
   background-color: #ebebeb;
   border-color: #adadad;
-}
+  }
 
 .btn-default:active,
 .btn-default.active,
@@ -2641,7 +2641,7 @@ fieldset[disabled] .btn-link {
 .btn-link:hover,
 .btn-link:focus {
   color: #2a6496;
-  text-decoration: underline;
+  text-decoration: none;
   background-color: transparent;
 }
 
@@ -3568,7 +3568,7 @@ input[type="button"].btn-block {
   min-width: 160px;
   padding: 5px 0;
   margin: 2px 0 0;
-  font-size: 14px;
+  font-size: 12px;
   list-style: none;
   background-color: #ffffff;
   border: 1px solid #cccccc;
@@ -3577,6 +3577,7 @@ input[type="button"].btn-block {
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
           box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   background-clip: padding-box;
+  
 }
 
 .dropdown-menu.pull-right {
@@ -3599,6 +3600,7 @@ input[type="button"].btn-block {
   line-height: 1.428571429;
   color: #333333;
   white-space: nowrap;
+   font-size: 12px;
 }
 
 .dropdown-menu > li > a:hover,
@@ -4616,6 +4618,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   .navbar-nav > li > a {
     padding-top: 15px;
     padding-bottom: 15px;
+    font-size: 12px;
   }
   .navbar-nav.navbar-right:last-child {
     margin-right: -15px;
@@ -4726,6 +4729,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .navbar-text {
   margin-top: 15px;
   margin-bottom: 15px;
+  
 }
 
 @media (min-width: 768px) {
@@ -5303,11 +5307,11 @@ a.list-group-item.active > .badge,
 
 .thumbnail {
   display: block;
-  padding: 0px;
-  margin-bottom: 0px;
+  padding: 6px;
+  margin-bottom: 8px;
   line-height: 1.428571429;
   background-color: #f8f8f8;
-  border: 2px solid #000000;
+  border: 1px solid #dddddd;
   border-radius: 0px;
   -webkit-transition: all 0.2s ease-in-out;
           transition: all 0.2s ease-in-out;
@@ -5316,7 +5320,7 @@ a.list-group-item.active > .badge,
 .thumbnail > img,
 .thumbnail a > img {
   display: block;
-  height: 86px;
+  height: 70px;
   width: 100%;
   margin-right: auto;
   margin-left: auto;
@@ -5767,7 +5771,7 @@ a.list-group-item.active:focus .list-group-item-text {
 .panel-title {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 16px;
+  font-size: 14px;
   color: inherit;
 }
 
@@ -6384,7 +6388,7 @@ button.close {
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
   display: block;
-  height: auto;
+  height: 360px;
   max-width: 100%;
   line-height: 1;
 }

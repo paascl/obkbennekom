@@ -30,11 +30,11 @@
     background:rgba(0,0,0,0.4);
     width:100%;
     height:100%;
-    padding:2%;
+    padding:0%;
     display: none;
     text-align:center;
     color:#fff !important;
-    z-index:2;
+    z-index:;
 }
 
 .loginerror {
@@ -46,4 +46,3 @@
     color: red;
     font-style: italic;
 }
-

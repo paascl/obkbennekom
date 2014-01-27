@@ -1,7 +1,7 @@
 <?php
 
 $dbname = "obkbennekom";
-$username = "obkdbuser";
+$username = "root";
 $password = "K13rk@mp36";
 $hostname = "localhost"; 
 
