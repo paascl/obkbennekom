@@ -1,18 +1,35 @@
+
 <!-- Desktop en tablet menu-->
 
       <div class="navbar-default navbar-static-top navbar-fixed-top hidden-xs" role="navigation">
        <div class="container">
-           <span class="loginbtn">
-              <button type="button" class="btn btn-default btn-sm navbar-right navbar-btn hidden-xs" data-toggle="modal" data-target="#loginmodal">Login</button>
-           </span>
-           <span class="profielbtn pull-right" style="display:none"> <!--Profielknop-->
+           
+<?php
+if ($_SESSION['type'] == 'gast') {
+
+$html = '<span class="loginbtn">';
+$html .= '<button type="button" class="btn btn-default btn-sm navbar-right navbar-btn hidden-xs" data-toggle="modal" data-target="#loginmodal"><span class="glyphicon glyphicon-log-in"></span> Login</button>';
+$html .= '</span>';
+$html .= '<span class="profielbtn pull-right" style="display:none"> <!--Profielknop-->';
+}
+
+else {
+$html = '<span class="loginbtn" style="display:none">';
+$html .= '<button type="button" class="btn btn-default btn-sm navbar-right navbar-btn hidden-xs" data-toggle="modal" data-target="#loginmodal"><span class="glyphicon glyphicon-log-in"></span> Login</button>';
+$html .= '</span>';
+$html = '<span class="profielbtn pull-right"> <!--Profielknop-->';
+}           
+
+echo $html;
+
+?>           
               <div class="btn-group">
                <button type="button" class="btn btn-link btn-sm navbar-btn dropdown-toggle hidden-xs" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Pascal Eikenaar <span class="caret"></span></button>
                <ul class="dropdown-menu" role="menu">
-               <li><a href="#">Dashboard</a></li>
-               <li><a href="#">Profiel bewerken</a></li>
+               <li><a href="#"><span class="glyphicon glyphicon-th-list"></span> Dashboard</a></li>
+               <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profiel bewerken</a></li>
                <li role="presentation" class="divider"></li>
-               <li><a href="#">Uitloggen</a></li>
+               <li><a class="btn btn-link logout" role="button" onclick="Logout()"><span class="glyphicon glyphicon-log-out"></span> Uitloggen</a></li>
                </ul>
               </div>
            </span>
@@ -84,7 +101,6 @@
 
       <div class="navbar-default navbar-static-top show-xs" role="navigation">
                
-              <button type="button" class="btn btn-default navbar-right navbar-btn hidden-xs" data-toggle="modal" data-target="#loginmodal">Login</button>
               <button type="button" class="btn navbar-toggle navbar-right navbar-btn" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
@@ -92,20 +108,28 @@
                 <span class="icon-bar"></span>
               </button>
  
-             <span class="profielbtn pull-right" style="display:none"> <!--Profielknop-->
+<?php
+    if ($_SESSION['type'] == 'gast') {
+        $html = '<span class="profielbtn pull-right" style="display:none"> <!--Profielknop-->';
+    }
+    else {
+        $html = '<span class="profielbtn pull-right"> <!--Profielknop-->';
+    }
+
+    echo $html;
+?>
+
               <div class="btn-group">
                <button type="button" class="btn btn-link navbar-btn dropdown-toggle show-xs" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Pascal Eikenaar <span class="caret"></span></button>
                <ul class="dropdown-menu" role="menu">
-               <li><a href="#">Dashboard</a></li>
-               <li><a href="#">Profiel bewerken</a></li>
+               <li><a href="#"><span class="glyphicon glyphicon-th-list"></span> Dashboard</a></li>
+               <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profiel bewerken</a></li>
                <li role="presentation" class="divider"></li>
-               <li><a href="#">Uitloggen</a></li>
-               </ul>
+               <li><a class="btn btn-link logout" role="button" onclick="Logout()"><span class="glyphicon glyphicon-log-out"></span> Uitloggen</a></li>
+              </ul>
               </div>
            </span>
     
-          
-          
           <div class="navbar-header">
             <img src="img/logo.png" class="img-responsive navbar-left" alt=""> 
           </div>  
@@ -113,8 +137,23 @@
                  
      <!--Dropdown-->           
                            
-              <ul class="nav navbar-nav">
-                 <li><a class="btn btn-link visible-xs" role="button" data-toggle="modal" data-target="#loginmodal">Leden login</a><hr></li>
+ <ul class="nav navbar-nav">
+
+<?php
+    if ($_SESSION['type'] == 'gast') {
+        $html = '<div class="loginbtn visible-xs">';
+        $html .= '<span><li><a class="btn btn-link" role="button" data-toggle="modal" data-target="#loginmodal"><span class="glyphicon glyphicon-log-in"></span> Leden login</a><hr></li>';
+        $html .= '</span></div>';    
+    }
+    else {
+        $html = '<div class="loginbtn visible-xs">';
+        $html .= '<span class="loginbtn" style="display:none"><li><a class="btn btn-link" role="button" data-toggle="modal" data-target="#loginmodal"><span class="glyphicon glyphicon-log-in"></span> Leden login</a><hr></li>';
+        $html .= '</span></div>';    
+        
+    }
+    echo $html;
+?>
+
                  <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Over OBK <b class="caret"></b></a>
                   <ul class="dropdown-menu">

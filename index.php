@@ -12,6 +12,7 @@
 
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap-social-buttons.css" rel="stylesheet">
+    <link href="css/bootstrap-notify.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
     <link href="css/carousel.css" rel="stylesheet">
     <link href="css/font-awesome.css" rel="stylesheet">
@@ -35,9 +36,23 @@
     <ol class="indicator"></ol>
 </div>
 
+         
 <?php
+
+include ('php/dbconnect.php');
+
+   session_start();
+ 
+if (empty($_SESSION)) {
+    $_SESSION['type'] = 'gast';
+    $stat_sql = 'INSERT INTO t_statistieken (time) VALUES (now())';
+    mysql_query($stat_sql);
+   
+}
+     
+
     include ('/frontend/login.html'); 
-    include ('/frontend/menu.html');
+    include ('/frontend/menu.php');
 ?>
 
 
@@ -48,7 +63,7 @@
     <div class="col-sm-10">
             
 <?php
-    include ('/frontend/carousel.php');
+    include ('frontend/carousel.php');
 ?>
 
     <div class="col-sm-2 hidden-xs"> 
@@ -93,9 +108,11 @@
 <div="row">
 <?php
     include ('frontend/footer.html');
+    mysql_close($conn);
 ?>
 </div>
 
+    <div class='notifications bottom-right'></div>
 
 </div> <!--Container-->
 
@@ -105,7 +122,7 @@
     <script src="js/jquery.mobile.custom.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap-hover-dropdown.js"></script>
-    <script src="js/holder.js"></script>
+    <script src="js/bootstrap-notify.js"></script>
     <script src="js/blueimp-gallery.min.js"></script>
     <script src="js/jquery.bsAlerts.min.js"></script>
     <script src="js/obkfrontend.js"></script>

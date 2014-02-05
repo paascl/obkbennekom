@@ -1,7 +1,5 @@
 <?php
 
-include ('php/dbconnect.php');
-
 $sql = 'SELECT * FROM t_info';
 $result = mysql_query($sql) or die (mysql_error);
 
@@ -93,7 +91,5 @@ $html .= '</div>';
 echo $html;
 
 }
-
-mysql_close($conn);
 
 ?>     

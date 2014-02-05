@@ -15,14 +15,15 @@ include ('check_input.php');
     }
 
     else {
-        session_start();
+       if (empty($_SESSION)) { session_start(); }
+        $_SESSION['type'] = 'login';
         $_SESSION['user_id'] = $row['user_id'];
         $_SESSION['user_naam'] = $row['naam'];
         $_SESSION['user_lid_id'] = $row['lid_id'];
         echo json_encode('loginsuccess');
          }
+mysql_close($conn);
 
-     mysql_close($conn);
 ?>
 
 

@@ -1,26 +1,33 @@
    
    /* Script voor frontend functies *
     * Gemaakt door: Pascal Eikenaar */
-       
-         
-    $(document).ready(function () { /* Uitvoeren wanneer de pagina geladen is */
-        $("#myCarousel").swiperight(function () { /* Swipe support voor de carrousel */
-            $(this).carousel('prev');
-        });
-        $("#myCarousel").swipeleft(function () {
-            $(this).carousel('next');
-        });
 
-   $( ".thumbnail" ) /* Animatie in het onderdelenmenu */
-        .mouseenter(function() {
+
+$(document).ready(function () { /* Uitvoeren wanneer de pagina geladen is */
+    $("#myCarousel").swiperight(function () { /* Swipe support voor de carrousel */
+        $(this).carousel('prev');
+    });
+    $("#myCarousel").swipeleft(function () {
+        $(this).carousel('next');
+    });
+
+    $(".thumbnail") /* Animatie in het onderdelenmenu */
+        .mouseenter(function () {
             $(this).find('.onderdeelcaption').removeClass("slideOutUp").addClass("slideInDown").show();
         })
-        .mouseleave(function() {
+        .mouseleave(function () {
             $(this).find('.onderdeelcaption').removeClass("slideInUp").addClass("slideOutUp");
-     });
 
-       
-}); /* Einde DOM */
+
+        });
+
+    $("[rel='popover']").popover({
+        html: 'true',
+        trigger: 'hover'
+    });
+   
+
+});   /* Einde DOM */
  
     function ShowInfo(item) { /* Onderdeel informatie uitklappen */
 
@@ -30,9 +37,7 @@
             toggle: false
         })
 
-
         switch (item) {
-
             case 'orkest':
                 $('#collapseTwirl').collapse('hide');
                 $('#collapseJeugd').collapse('hide');
@@ -94,6 +99,14 @@
     blueimp.Gallery(links, options);
 };
 
+  document.getElementById('newsitem4').onclick = function (event) { /* Activeren van nieuws thumbs showen */
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+};
 
     document.getElementById('Orkest').onclick = function (event) { /* Activeren van nieuws thumbs showen */
     event = event || window.event;
@@ -200,6 +213,18 @@ $(function () { /* Login procedure */
         return false;
     });
 
-});
-      
+}); 
 
+$(".logout").click(function()  {
+    $.ajax({
+        url: '../php/logout.php'}) 
+
+   $('.bottom-right').notify({
+    message: { html: '<span class="glyphicon glyphicon-info-sign"></span> U bent uitgelogd.' },
+    type: 'info' 
+     
+  }).show();     
+
+ $('.loginbtn').fadeOut(200).show();
+ $('.profielbtn').fadeOut(200).hide();
+})  

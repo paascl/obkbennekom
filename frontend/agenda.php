@@ -1,9 +1,9 @@
 
+ <!-- Agenda --!>
+
 <?php
 
-include ('php/dbconnect.php');
-
- $sql = 'SELECT date_format(date, "%d-%m-%Y") AS date, text, aanvang, plaats FROM t_agenda WHERE public = 1 AND DATEDIFF(date, now()) >= 0 ORDER BY date LIMIT 5';
+ $sql = 'SELECT date_format(date, "%d-%m-%Y") AS date, text, aanvang, plaats, onderdeel_id FROM t_agenda WHERE public = 1 AND DATEDIFF(date, now()) >= 0 ORDER BY date LIMIT 5';
  $result = mysql_query($sql);
 
 $html = '<div class="col-sm-4">';
@@ -19,9 +19,17 @@ $html .= '<table class="table">';
      $text = $row['text'];
      $aanvang = $row['aanvang'];
      $plaats = $row['plaats'];
+     $onderdeel_id = $row['onderdeel_id'];
 
-   $html .= '<tr><td>' . $date . '</td><td>' . $text . '</td></tr>';
+   $onderdeelsql = "SELECT name, default_thumb FROM t_onderdelen WHERE onderdeel_id = $onderdeel_id";
+   $onderdeelresult = mysql_query($onderdeelsql);
+   $onderdeelrow = mysql_fetch_array($onderdeelresult);
+   $onderdeel = $onderdeelrow['name'];
+   $onderdeel_thumb = $onderdeelrow['default_thumb'];
 
+   $html .= '<tr title="<img src = &#34' . $onderdeel_thumb . '&#34 class=&#34 popoverthumb &#34><b> '. $onderdeel . '</b>" rel="popover" data-placement="top" data-content="<b>Aanvang: </b>' . $aanvang . '<p><b>Plaats: </b>' . $plaats . '">';
+   $html .= '<td>' . $date . '</a></td><td>' . $text . '</td></tr>';
+   
  }
 
 $html .= '</table>';
@@ -31,5 +39,4 @@ $html .= '</div>';
 $html .= '</div>';
 
 echo $html;
-mysql_close ($conn);
 ?>

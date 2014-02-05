@@ -1,7 +1,5 @@
 <?php
 
-include ('php/dbconnect.php');
-
 $sql = 'SELECT * FROM t_news ORDER BY news_id DESC LIMIT 4';
 $result = mysql_query($sql) or die (mysql_error);
 
@@ -76,6 +74,5 @@ echo $html;
 
 echo '<br></br><center><p><a href="#">- Meer nieuws -</a></center></div>';
 
-mysql_close($conn);
 
 ?>
