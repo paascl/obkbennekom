@@ -1,6 +1,6 @@
 .notifications {
   position: fixed;
-}
+ }
 
 /* Positioning */ 
 .notifications.top-right {
@@ -19,7 +19,7 @@
 }
 
 .notifications.bottom-right {
-  right: 55px;
+  right: 10px;
   bottom: 25px;
 }
 

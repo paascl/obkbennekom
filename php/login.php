@@ -1,27 +1,37 @@
 <?php
 
-include ('dbconnect.php');
-include ('check_input.php');
+require 'dbconnect.php';
+require 'check_input.php';
 
     $Login = check_input($_POST['login']);
-    $Password = check_input($_POST['password']);
+    $Pass = mysql_real_escape_string($_POST['password']);
 
-    $sql = "SELECT user_id, naam, lid_id FROM t_users WHERE login = $Login AND password  = $Password";
-    $result  = mysql_query($sql);
+    $sql = "SELECT user_id, login, naam, lid_id, avatar, password FROM t_users WHERE login = $Login";
+    $result  = mysql_query($sql) or die(MYSQL_ERROR);
     $row = mysql_fetch_array($result);
 
-    if (empty($row['user_id'])) {
-       echo json_encode('loginerror');
-    }
+    if (password_verify(md5($Pass), $row['password'])) {
+      if (empty($_SESSION)) { session_start(); }
+      
+       $avatar = $row['avatar'];
+       if ($avatar == '') {
+           $avatar = 'default-user.png';
+       }
+      
+      $_SESSION['type'] = 'login';
+      $_SESSION['user_id'] = $row['user_id'];
+      $_SESSION['login'] = $row['login'];
+      $_SESSION['user_naam'] = $row['naam'];
+      $_SESSION['user_lid_id'] = $row['lid_id'];
+      $_SESSION['avatar'] = $avatar;
+      $arrJson = array('status' => 'loginsuccess', 'username' => $row['naam']);
+      echo json_encode($arrJson);
+     }
 
-    else {
-       if (empty($_SESSION)) { session_start(); }
-        $_SESSION['type'] = 'login';
-        $_SESSION['user_id'] = $row['user_id'];
-        $_SESSION['user_naam'] = $row['naam'];
-        $_SESSION['user_lid_id'] = $row['lid_id'];
-        echo json_encode('loginsuccess');
-         }
+     else {
+      $arrJson = array('status' => 'loginerror');
+      echo json_encode($arrJson);
+     }
 mysql_close($conn);
 
 ?>

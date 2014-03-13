@@ -2,22 +2,27 @@
    /* Script voor frontend functies *
     * Gemaakt door: Pascal Eikenaar */
 
+$.ajaxSetup({ cache: false });
 
-$(document).ready(function () { /* Uitvoeren wanneer de pagina geladen is */
-    $("#myCarousel").swiperight(function () { /* Swipe support voor de carrousel */
+$(document).ready(function ()
+{ /* Uitvoeren wanneer de pagina geladen is */
+    $("#myCarousel").swiperight(function ()
+    { /* Swipe support voor de carrousel */
         $(this).carousel('prev');
     });
-    $("#myCarousel").swipeleft(function () {
+    $("#myCarousel").swipeleft(function ()
+    {
         $(this).carousel('next');
     });
 
     $(".thumbnail") /* Animatie in het onderdelenmenu */
-        .mouseenter(function () {
+        .mouseenter(function ()
+        {
             $(this).find('.onderdeelcaption').removeClass("slideOutUp").addClass("slideInDown").show();
         })
-        .mouseleave(function () {
+        .mouseleave(function ()
+        {
             $(this).find('.onderdeelcaption').removeClass("slideInUp").addClass("slideOutUp");
-
 
         });
 
@@ -25,9 +30,10 @@ $(document).ready(function () { /* Uitvoeren wanneer de pagina geladen is */
         html: 'true',
         trigger: 'hover'
     });
-   
+    
 
-});   /* Einde DOM */
+});    /* Einde DOM */
+
  
     function ShowInfo(item) { /* Onderdeel informatie uitklappen */
 
@@ -154,8 +160,10 @@ $(document).ready(function () { /* Uitvoeren wanneer de pagina geladen is */
 };
 
 
-$(function () { /* Login procedure */
-    $(".login").click(function () {
+$(function ()
+{ /* Login procedure */
+    $(".login").click(function ()
+    {
         var login = $("#inputEmail").val();
         var password = $("#inputPassword").val();
         var atpos = login.indexOf("@");
@@ -163,6 +171,8 @@ $(function () { /* Login procedure */
         var dataString = 'login=' + login + '&password=' + password;
         var status;
         var output;
+        var data;
+        var username;
 
         $(".login").button('loading')
 
@@ -170,26 +180,32 @@ $(function () { /* Login procedure */
         $('.loginerror').fadeOut(200).hide();
 
 
-        if (login == '' || atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= login.length) {
+        if (login == '' || atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= login.length)
+        {
             $('.loginerror').fadeOut(200).show();
             $(".login").button('reset')
 
         }
-        else if (password == '') {
+        else if (password == '')
+        {
             $('.passworderror').fadeOut(200).show();
             $(".login").button('reset')
         }
 
 
-        else {
+        else
+        {
             $.ajax({
                 type: "POST",
                 url: "../php/login.php",
                 data: dataString,
-                success: function (output) {
-                    status = JSON.parse(output);
+                success: function (output)
+                {
+                    data = JSON.parse(output);
+                    status = data['status'];
 
-                    if (status == 'loginerror') {
+                    if (status == 'loginerror')
+                    {
                         $(document).trigger("add-alerts", [
                     {
                         'message': "<span class='glyphicon glyphicon-warning-sign'></span> Gebruikersnaam en/of wachtwoord is onjuist.",
@@ -198,15 +214,24 @@ $(function () { /* Login procedure */
                     ]);
                         $(".login").button('reset')
                     }
-
-                    if (status == 'loginsuccess') {
+                    ;
+                    if (status == 'loginsuccess')
+                    {
                         $('#loginmodal').modal('hide')
                         $(".login").button('reset')
-                        $('.loginbtn').fadeOut(200).hide();
-                        $('.profielbtn').fadeOut(200).show();
+                        $('.loginbtn').fadeOut().hide();
+                        $(".profielbtn").load("../backend/profielbtn.php", function ()
+                        { 
+                            $('.profielbtn').show();
+                        });
+
+                        username = data['username'];
+                        $('.bottom-right').notify({
+                            message: { html: 'Welkom <strong> ' + username + '. </strong' },
+                            type: 'info'
+                        }).show();
+
                     }
-
-
                 }
             });
         }
@@ -215,7 +240,7 @@ $(function () { /* Login procedure */
 
 }); 
 
-$(".logout").click(function()  {
+$(".logout").click(function()  { /* Uitloggen */
     $.ajax({
         url: '../php/logout.php'}) 
 
@@ -225,6 +250,80 @@ $(".logout").click(function()  {
      
   }).show();     
 
- $('.loginbtn').fadeOut(200).show();
- $('.profielbtn').fadeOut(200).hide();
-})  
+  $('.loginbtn').show();
+  $('.profielbtn').fadeOut().hide();
+
+})
+
+$(function ()
+{ /* Aanmelden nieuwsbrief */
+    $(".newsform").click(function ()
+    {
+        var naam = $("#inputNaam").val();
+        var email = $("#inputEmail2").val();
+        var atpos = email.indexOf("@");
+        var dotpos = email.lastIndexOf(".");
+        var dataString = 'naam=' + naam + '&email=' + email;
+        var status;
+        var output;
+        var data;
+
+        $(".newsform").button('loading')
+
+        $('.naamerror').fadeOut(200).hide();
+        $('.emailerror').fadeOut(200).hide();
+
+        if (email == '' || atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= email.length)
+        {
+            $('.emailerror').show();
+            $(".newsform").button('reset')
+
+        }
+        else if (naam == '')
+        {
+            $('.naamerror').show();
+            $(".newsform").button('reset')
+        }
+
+
+        else
+        {
+            $.ajax({
+                type: "POST",
+                url: "../php/newsform.php",
+                data: dataString,
+                success: function (output)
+                {
+                    data = JSON.parse(output);
+                    status = data['status'];
+
+                    if (status == 'error')
+                    {
+                        $(document).trigger("add-alerts", [
+                    {
+                        'message': "<span class='glyphicon glyphicon-warning-sign'></span> Het emailadres is al aangemeld.",
+                        'priority': 'error'
+                    }
+                    ]);
+                        $(".newsform").button('reset')
+                    }
+
+                    if (status == 'success')
+                    {
+                        $('#aangemeld').modal('show');
+                        $(".newsform").button('reset')
+                       
+                    }
+
+                }
+            });
+        }
+    });
+    return false;
+});
+
+    function OpenNews(newsid) {
+
+        $('.newsblock').hide();
+        alert(newsid);
+}

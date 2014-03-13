@@ -1,5 +1,8 @@
 <?php
 
+echo '<div class="newsblock uitlijnen">';
+echo '<div class="lastnews">Het laatste nieuws</div>';
+
 $sql = 'SELECT * FROM t_news ORDER BY news_id DESC LIMIT 4';
 $result = mysql_query($sql) or die (mysql_error);
 
@@ -14,7 +17,11 @@ while ($row=mysql_fetch_array($result)) {
     $username = $row['username'];
     $onderdeel_id = $row['onderdeel_id'];
 
-    $html = '<div class="media">';
+    $html = '<div class="published uitlijnen">';
+    $html .= 'Gepubliceerd op: ' . $date . '. Door: ' . $username . '.'; 
+    $html .= '</div>';
+
+    $html .= '<div class="media">';
     $html .= '<div class="media-body">';
     $html .= '<div id="newsitem' . $i .'">';
 
@@ -29,16 +36,21 @@ while ($row=mysql_fetch_array($result)) {
         $mediatitle = $mediarow['title'];
     
        if ($type == 'foto') {
+       
+        $html .= '<a class="pull-right visible-xs" href="' . $thumb . '">';
+        $html .= '<img class="media-object mediaimgmobile" src="' . $location . '" alt="' . $mediatitle . '">';
+        $html .= '</a>';
 
-        $html .= '<a class="pull-right" href="' . $thumb . '">';
-        $html .= '<img class="media-object mediaimg" src="' . $location . '" alt="' . $mediatitle . '">';
+        $html .= '<a class="pull-left hidden-xs" href="' . $thumb . '">';
+        $html .= '<img class="media-object mediaimgdesktop" src="' . $location . '" alt="' . $mediatitle . '">';
         $html .= '</a></div>';
+
            
        }
 
        if ($type == 'youtube') {
         $html .= '<a class="pull-right">';
-        $html .= '<iframe width="320" height="180" src="//www.youtube.com/embed/' . $location . '?mode=transparent&modestbranding=0&rel=0&showinfo=0&showsearch=0&controls=2&autohide=1" frameborder="0" allowfullscreen></iframe></a>';   
+        $html .= '<iframe width="320" height="192" src="//www.youtube.com/embed/' . $location . '?mode=transparent&modestbranding=0&rel=0&showinfo=0&showsearch=0&controls=2&autohide=1" frameborder="0" allowfullscreen></iframe></a>';   
         $html .= '</div>';
        }
     
@@ -52,27 +64,36 @@ while ($row=mysql_fetch_array($result)) {
         $defaultimage = $defaultimgrow['default_image'];
 
         $html .= '<a class="pull-right" href="' . $defaultimage . '">';
-        $html .= '<img class="media-object mediaimg" src="' . $defaultthumb . '">';
+        $html .= '<img class="media-object mediaimgmobile visible-xs" src="' . $defaultthumb . '">';
+        $html .= '</a>';
+
+        $html .= '<a class="pull-left" href="' . $defaultimage . '">';
+        $html .= '<img class="media-object mediaimgdesktop hidden-xs" src="' . $defaultthumb . '">';
         $html .= '</a></div>';
+
     }
 
-$html .= '<h4 class="media-heading">' . $title . '</h4>';
-$html .= $text; 
+$html .= '<h3 class="media-heading">' . $title . '</h3>';
+$html .= $text . ' '; 
 
-if (isset($row['news-text'])) {
-$html .= '<button type="button" class="btn btn-default btn-xs">Meer</button>';
+if (isset($row['news_text'])) {
+$html .= '<a class="btn btn-default btn-xs" role="button" onclick="OpenNews(' . $i . ')">Meer</a>';
 }
 
 $html .= '</div>';
 $html .= '</div>';
-$html .= '<br></br>';
+
+if ($i < 4) {
+$html .= '<hr>';
+}
 
 $i++;
 echo $html;
 
 }
 
-echo '<br></br><center><p><a href="#">- Meer nieuws -</a></center></div>';
+echo '<center><p><a href="#">- Meer nieuws -</a></center></div>';
 
+echo '</div>';
 
 ?>
